@@ -10,7 +10,7 @@
       background: #111;
       color: white;
       font-family: Arial, sans-serif;
-      overflow-x: hidden; /* 👈 bloquea scroll horizontal */
+      overflow-x: hidden;
       height: 100%;
     }
 
@@ -46,6 +46,10 @@
     /* Contenido principal */
     #contenido {
       display: none;
+      flex-direction: column;
+    }
+
+    .hero {
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -93,6 +97,68 @@
     .btn:hover {
       background: #ddd;
     }
+
+    /* Sección de testimonios */
+    .testimonios {
+      background: #fff;
+      color: #111;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .testimonios h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .testimonios-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      color: #111;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 300px;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stars {
+      color: gold;
+      font-size: 20px;
+    }
+
+    .btn-dark {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      font-size: 16px;
+      color: white;
+      background: #333;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-dark:hover {
+      background: #555;
+    }
   </style>
 </head>
 <body>
@@ -104,16 +170,32 @@
 
   <!-- Contenido principal -->
   <div id="contenido">
-    <div class="container">
-      <div class="logo-side" id="logoAnim">
-        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Pinz Store" width="300">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="logo-side" id="logoAnim">
+          <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Pinz Store" width="300">
+        </div>
+        <div class="text-side" id="textAnim">
+          <h1 style="font-size:32px; font-weight:bold;">Tu tienda digital de confianza</h1>
+          <p>Disfruta tus series, películas y música favoritas de manera rápida, segura y accesible.</p>
+          <button class="btn">Nuestro Catálogo</button>
+        </div>
       </div>
-      <div class="text-side" id="textAnim">
-        <h1 style="font-size:32px; font-weight:bold;">Tu tienda digital de confianza</h1>
-        <p>Disfruta tus series, películas y música favoritas de manera rápida, segura y accesible.</p>
-        <button class="btn">Nuestro Catálogo</button>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonios">
+      <h2>¿Qué opinan nuestros clientes?</h2>
+      <div class="testimonios-container">
+        <div class="testimonial-card">
+          <p>"Excelente atención al cliente."</p>
+          <strong>Diana L.</strong>
+          <div class="stars">★★★★★</div>
+        </div>
       </div>
-    </div>
+      <button class="btn-dark">Comparte tu opinión</button>
+    </section>
   </div>
 
   <script>
