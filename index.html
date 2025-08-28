@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testimonios</title>
+  <title>Testimonios con Explosión</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #111;
       color: #fff;
+      overflow-x: hidden;
     }
 
     .testimonios {
-      background: #111;
-      color: #fff;
       padding: 80px 20px;
     }
 
@@ -25,6 +24,7 @@
       gap: 60px;
       max-width: 1000px;
       margin: 0 auto;
+      position: relative;
     }
 
     .titulo {
@@ -60,23 +60,13 @@
       opacity: 0;
       transform: translateX(100%);
       transition: transform 0.6s ease, opacity 0.6s ease;
+      z-index: 2;
     }
 
     .testimonial-card.active {
       opacity: 1;
       transform: translateX(0);
-      z-index: 2;
-    }
-
-    /* Explosion efecto salida */
-    .testimonial-card.explode {
-      animation: explode 0.6s forwards;
-    }
-
-    @keyframes explode {
-      0% { opacity: 1; transform: scale(1) rotate(0deg); }
-      50% { opacity: 0.8; transform: scale(1.2) rotate(15deg); }
-      100% { opacity: 0; transform: scale(2) rotate(-25deg); filter: blur(4px); }
+      z-index: 3;
     }
 
     .testimonial-card p {
@@ -93,18 +83,25 @@
       color: gold;
       font-size: 20px;
     }
+
+    /* Canvas para partículas */
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
 
   <section class="testimonios">
     <div class="testimonios-container">
-      <!-- Izquierda: Título -->
       <div class="titulo">
         <h2>¿Qué opinan<br>nuestros clientes?</h2>
       </div>
 
-      <!-- Derecha: Tarjetas -->
       <div class="cards">
         <div class="testimonial-card active">
           <p>"Excelente atención al cliente."</p>
@@ -122,30 +119,78 @@
           <div class="stars">★★★★☆</div>
         </div>
       </div>
+
+      <!-- Canvas para partículas -->
+      <canvas id="particles"></canvas>
     </div>
   </section>
 
   <script>
     const cards = document.querySelectorAll(".testimonial-card");
     let current = 0;
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    class Particle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 4 + 2;
+        this.speedX = (Math.random() - 0.5) * 10;
+        this.speedY = (Math.random() - 0.5) * 10;
+        this.life = 60;
+        this.color = `hsl(${Math.random() * 60 + 40}, 100%, 60%)`; // tonos amarillos eléctricos
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.size *= 0.95;
+        this.life--;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function createExplosion(x, y, w, h) {
+      for (let i = 0; i < 50; i++) {
+        let px = x + Math.random() * w;
+        let py = y + Math.random() * h;
+        particles.push(new Particle(px, py));
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        p.update();
+        p.draw();
+        if (p.life <= 0) particles.splice(i, 1);
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
 
     function showNextCard() {
       const currentCard = cards[current];
-      currentCard.classList.add("explode"); // animación de salida
+      const rect = currentCard.getBoundingClientRect();
 
-      setTimeout(() => {
-        currentCard.classList.remove("active", "explode");
-        current = (current + 1) % cards.length;
-        cards[current].classList.add("active"); // siguiente entra
-      }, 600); // coincide con duración del explode
+      // Explosion donde está la tarjeta
+      createExplosion(rect.left, rect.top, rect.width, rect.height);
+
+      currentCard.classList.remove("active");
+      current = (current + 1) % cards.length;
+      cards[current].classList.add("active");
     }
 
-    // Mostrar el primero
-    cards[current].classList.add("active");
-
-    // Cambiar cada 4 segundos
     setInterval(showNextCard, 4000);
   </script>
-
 </body>
 </html>
