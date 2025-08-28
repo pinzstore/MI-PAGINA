@@ -2,14 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Página</title>
+  <title>Pantalla de carga</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
       background: #111;
       color: white;
       text-align: center;
+      font-family: Arial, sans-serif;
     }
 
     /* Preloader */
@@ -25,17 +26,19 @@
       z-index: 9999;
       transition: opacity 1s ease, visibility 1s ease;
     }
-    .loader {
-      border: 8px solid #222;
-      border-top: 8px solid #00aaff;
-      border-radius: 50%;
-      width: 80px; height: 80px;
-      animation: spin 1.2s linear infinite;
+
+    /* Logo animado */
+    #preloader img {
+      width: 120px;
+      animation: pulse 2s infinite ease-in-out;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
     }
+
+    /* Ocultar preloader */
     body.loaded #preloader {
       opacity: 0;
       visibility: hidden;
@@ -45,19 +48,26 @@
 <body>
   <!-- Pantalla de carga -->
   <div id="preloader">
-    <div class="loader"></div>
-    <p>Cargando...</p>
+    <img src="URL_DE_TU_LOGO.png" alt="Logo">
+    <p>Iniciando...</p>
   </div>
 
-  <!-- Contenido real -->
-  <h1>Bienvenido a mi página 🚀</h1>
-  <p>Ya cargó todo, ahora ves el contenido.</p>
+  <!-- Aquí estaría el login -->
+  <div id="contenido" style="display:none; padding:40px;">
+    <h2>Inicia sesión</h2>
+    <form>
+      <input type="text" placeholder="Usuario" required><br><br>
+      <input type="password" placeholder="Contraseña" required><br><br>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 
   <script>
     window.addEventListener("load", function(){
       setTimeout(function(){
         document.body.classList.add("loaded");
-      }, 2000); // tiempo antes de quitar loader
+        document.getElementById("contenido").style.display = "block";
+      }, 2500); // 2.5 segundos antes de mostrar login
     });
   </script>
 </body>
