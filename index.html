@@ -25,8 +25,8 @@
       position: relative;
       z-index: 2;
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      animation: fadeIn 0.8s ease-out;
-      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.8s ease-out;
     }
 
     .testimonial-card p {
@@ -45,10 +45,10 @@
       color: gold;
     }
 
-    @keyframes fadeIn {
+    @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -68,8 +68,8 @@
 <body>
   
   <div class="testimonial-card" id="testimonialCard">
-    <p>"Excelente atención al cliente."</p>
-    <h4>Diana L.</h4>
+    <p></p>
+    <h4></h4>
     <div class="stars">⭐⭐⭐⭐⭐</div>
   </div>
 
@@ -77,6 +77,8 @@
 
   <script>
     const card = document.getElementById("testimonialCard");
+    const cardText = card.querySelector("p");
+    const cardAuthor = card.querySelector("h4");
     const canvas = document.getElementById("particlesCanvas");
     const ctx = canvas.getContext("2d");
 
@@ -84,20 +86,29 @@
     canvas.height = window.innerHeight;
 
     let particles = [];
+    let testimonialIndex = 0;
+
+    // Testimonios (ejemplo, puedes poner los tuyos)
+    const testimonios = [
+      { texto: '"Compré Netflix y todo funcionó perfecto 👌"', autor: "Carlos M." },
+      { texto: '"Muy rápido el servicio con Disney+ 💯"', autor: "Andrea P." },
+      { texto: '"Prime Video llegó en segundos, excelente atención"', autor: "Luis G." },
+      { texto: '"HBO Max y Crunchyroll sin problemas, recomendado!"', autor: "Sofía R." }
+    ];
 
     // Crear explosión de partículas
     function createExplosion(x, y) {
       particles = [];
-      for (let i = 0; i < 60; i++) { // 🔹 más partículas
+      for (let i = 0; i < 100; i++) { 
         let img = new Image();
-        img.src = "ray.png"; // 🔹 tu PNG del rayo (debes tenerlo en la carpeta)
+        img.src = "ray.png"; // tu PNG de rayo transparente
         particles.push({
           x: x,
           y: y,
-          vx: (Math.random() - 0.5) * 10,
-          vy: (Math.random() - 0.5) * 10,
-          life: 80 + Math.random() * 40,
-          size: 20 + Math.random() * 10,
+          vx: (Math.random() - 0.5) * 14,
+          vy: (Math.random() - 0.5) * 14,
+          life: 100 + Math.random() * 50,
+          size: 20 + Math.random() * 20,
           img: img
         });
       }
@@ -113,7 +124,7 @@
 
         ctx.save();
         ctx.translate(p.x, p.y);
-        ctx.rotate(Math.random() * Math.PI); // rotación random
+        ctx.rotate(Math.random() * Math.PI);
         ctx.drawImage(p.img, -p.size/2, -p.size/2, p.size, p.size);
         ctx.restore();
 
@@ -124,23 +135,42 @@
 
     animateParticles();
 
-    // Evento: click en la tarjeta
-    card.addEventListener("click", () => {
-      const rect = card.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+    // Mostrar tarjeta con animación
+    function showTestimonial(index) {
+      const t = testimonios[index];
+      cardText.textContent = t.texto;
+      cardAuthor.textContent = t.autor;
+      card.style.display = "block";
+      card.style.opacity = "1";
+      card.style.animation = "fadeInUp 0.8s ease-out";
 
-      createExplosion(centerX, centerY);
-
-      // 🔹 Animación de desvanecimiento
-      card.style.opacity = "0";
-      card.style.transition = "opacity 0.8s ease-out";
+      // Después de unos segundos explotar
       setTimeout(() => {
-        card.style.display = "none";
-      }, 800);
-    });
+        const rect = card.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
 
-    // Ajustar canvas si cambia el tamaño de la pantalla
+        createExplosion(centerX, centerY);
+
+        // Desvanecer tarjeta
+        card.style.opacity = "0";
+        setTimeout(() => {
+          card.style.display = "none";
+
+          // Pasar al siguiente testimonio
+          testimonialIndex = (testimonialIndex + 1) % testimonios.length;
+          setTimeout(() => {
+            showTestimonial(testimonialIndex);
+          }, 500); // pequeño delay entre explosión y siguiente
+        }, 800);
+
+      }, 3000); // tiempo visible en pantalla
+    }
+
+    // Iniciar
+    showTestimonial(testimonialIndex);
+
+    // Ajustar canvas al cambiar ventana
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
