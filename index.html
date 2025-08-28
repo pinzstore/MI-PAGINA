@@ -40,6 +40,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
 
     #particlesCanvas {
@@ -53,6 +54,7 @@
     }
 
     .testimonial-card {
+      position: absolute;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -60,12 +62,19 @@
       text-align: center;
       max-width: 400px;
       z-index: 10;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .testimonial-card.active {
       opacity: 1;
-      transition: opacity 0.8s ease-out;
+      transform: translateX(0);
     }
 
     .testimonial-card.fade-out {
       opacity: 0;
+      transform: scale(0.9);
     }
 
     .stars {
@@ -87,11 +96,25 @@
       <!-- Columna derecha -->
       <div class="right">
         <canvas id="particlesCanvas"></canvas>
-        <div class="testimonial-card" id="testimonial-card">
+
+        <div class="testimonial-card active">
           <p>"Fácil de usar y confiable."</p>
           <strong>Luisa P.</strong>
           <div class="stars">⭐⭐⭐⭐⭐</div>
         </div>
+
+        <div class="testimonial-card">
+          <p>"Excelente atención al cliente."</p>
+          <strong>Carlos G.</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Muy recomendado, todo seguro."</p>
+          <strong>Ana M.</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -133,7 +156,7 @@
     }
 
     function createExplosion(x, y) {
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 35; i++) {
         particles.push(new Particle(x, y));
       }
     }
@@ -149,20 +172,32 @@
     }
     animateParticles();
 
-    function explodeCard() {
-      const card = document.getElementById("testimonial-card");
-      const rect = card.getBoundingClientRect();
+    // Carrusel con explosión
+    const cards = document.querySelectorAll(".testimonial-card");
+    let current = 0;
+
+    function showNextCard() {
+      const currentCard = cards[current];
+      const rect = currentCard.getBoundingClientRect();
       const canvasRect = canvas.getBoundingClientRect();
 
       const x = rect.left + rect.width / 2 - canvasRect.left;
       const y = rect.top + rect.height / 2 - canvasRect.top;
 
+      // Explosión + desvanecer tarjeta actual
       createExplosion(x, y);
-      card.classList.add("fade-out");
+      currentCard.classList.remove("active");
+      currentCard.classList.add("fade-out");
+
+      // Pasar a la siguiente
+      setTimeout(() => {
+        currentCard.classList.remove("fade-out");
+        current = (current + 1) % cards.length;
+        cards[current].classList.add("active");
+      }, 1000); // tiempo entre tarjetas
     }
 
-    // Lanza la explosión automáticamente después de unos segundos
-    setTimeout(explodeCard, 2500);
+    setInterval(showNextCard, 4000); // cada 4s rota
   </script>
 </body>
 </html>
