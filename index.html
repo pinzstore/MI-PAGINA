@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testimonios con Explosión</title>
+  <title>Testimonios con Explosión Realista</title>
   <style>
     body {
       margin: 0;
@@ -42,7 +42,7 @@
     .cards {
       flex: 1;
       position: relative;
-      height: 200px;
+      height: 220px;
     }
 
     .testimonial-card {
@@ -69,6 +69,12 @@
       z-index: 3;
     }
 
+    .testimonial-card.fade-out {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
     .testimonial-card p {
       font-style: italic;
       margin-bottom: 8px;
@@ -84,7 +90,6 @@
       font-size: 20px;
     }
 
-    /* Canvas para partículas */
     canvas {
       position: absolute;
       top: 0;
@@ -120,7 +125,6 @@
         </div>
       </div>
 
-      <!-- Canvas para partículas -->
       <canvas id="particles"></canvas>
     </div>
   </section>
@@ -134,33 +138,35 @@
     canvas.height = window.innerHeight;
 
     let particles = [];
+    const particleImg = new Image();
+    particleImg.src = "https://i.ibb.co/mFmp3mB/particle.png"; // 🔥 pon aquí tu PNG de chispa
 
     class Particle {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 4 + 2;
-        this.speedX = (Math.random() - 0.5) * 10;
-        this.speedY = (Math.random() - 0.5) * 10;
-        this.life = 60;
-        this.color = `hsl(${Math.random() * 60 + 40}, 100%, 60%)`; // tonos amarillos eléctricos
+        this.size = Math.random() * 20 + 10;
+        this.speedX = (Math.random() - 0.5) * 12;
+        this.speedY = (Math.random() - 0.5) * 12;
+        this.life = 50 + Math.random() * 30;
+        this.opacity = 1;
       }
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        this.size *= 0.95;
+        this.size *= 0.96;
         this.life--;
+        this.opacity -= 0.02;
       }
       draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
+        ctx.globalAlpha = this.opacity;
+        ctx.drawImage(particleImg, this.x, this.y, this.size, this.size);
+        ctx.globalAlpha = 1;
       }
     }
 
     function createExplosion(x, y, w, h) {
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 80; i++) {  // 🔥 más partículas
         let px = x + Math.random() * w;
         let py = y + Math.random() * h;
         particles.push(new Particle(px, py));
@@ -182,12 +188,17 @@
       const currentCard = cards[current];
       const rect = currentCard.getBoundingClientRect();
 
-      // Explosion donde está la tarjeta
+      // Explosión con partículas PNG
       createExplosion(rect.left, rect.top, rect.width, rect.height);
 
       currentCard.classList.remove("active");
-      current = (current + 1) % cards.length;
-      cards[current].classList.add("active");
+      currentCard.classList.add("fade-out");
+
+      setTimeout(() => {
+        currentCard.classList.remove("fade-out");
+        current = (current + 1) % cards.length;
+        cards[current].classList.add("active");
+      }, 800);
     }
 
     setInterval(showNextCard, 4000);
