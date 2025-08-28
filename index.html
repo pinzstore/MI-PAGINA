@@ -99,69 +99,101 @@
     }
 
     /* Sección de testimonios */
-    .testimonios {
-      background: #fff;
-      color: #111;
-      padding: 80px 20px;
-      text-align: center;
-    }
+    <section class="testimonios">
+  <div class="testimonios-container">
+    <!-- Lado izquierdo -->
+    <div class="titulo">
+      <h2>¿Qué opinan<br>nuestros clientes?</h2>
+    </div>
 
-    .testimonios h2 {
-      font-size: 32px;
-      margin-bottom: 40px;
-    }
+    <!-- Lado derecho -->
+    <div class="cards">
+      <div class="testimonial-card">
+        <p>"Excelente atención al cliente."</p>
+        <strong>Diana L.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+      <button class="btn-dark">Comparte tu opinión</button>
+    </div>
+  </div>
+</section>
 
-    .testimonios-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
+<style>
+  .testimonios {
+    background: #fff;
+    color: #111;
+    padding: 80px 20px;
+  }
 
-    .testimonial-card {
-      background: #fff;
-      color: #111;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-width: 300px;
-    }
+  .testimonios-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-    .testimonial-card p {
-      font-style: italic;
-      margin-bottom: 10px;
-    }
+  .titulo {
+    flex: 1;
+    text-align: left;
+  }
 
-    .testimonial-card strong {
-      display: block;
-      margin-bottom: 8px;
-    }
+  .titulo h2 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.3;
+  }
 
-    .stars {
-      color: gold;
-      font-size: 20px;
-    }
+  .cards {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 
-    .btn-dark {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 30px;
-      font-size: 16px;
-      color: white;
-      background: #333;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+  .testimonial-card {
+    background: #fff;
+    color: #111;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 350px;
+    text-align: center;
+  }
 
-    .btn-dark:hover {
-      background: #555;
-    }
-  </style>
-</head>
-<body>
+  .testimonial-card p {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-card strong {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .stars {
+    color: gold;
+    font-size: 20px;
+  }
+
+  .btn-dark {
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    background: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .btn-dark:hover {
+    background: #555;
+  }
+</style>
+
   <!-- Pantalla de carga -->
   <div id="preloader">
     <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Logo">
@@ -214,3 +246,4 @@
   </script>
 </body>
 </html>
+
