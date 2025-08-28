@@ -2,15 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Pantalla de carga</title>
+  <title>Pinz Store</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background: #111;
       color: white;
-      text-align: center;
       font-family: Arial, sans-serif;
+      overflow-x: hidden;
     }
 
     /* Preloader */
@@ -27,7 +27,6 @@
       transition: opacity 1s ease, visibility 1s ease;
     }
 
-    /* Logo animado */
     #preloader img {
       width: 120px;
       animation: pulse 2s infinite ease-in-out;
@@ -38,10 +37,60 @@
       50% { transform: scale(1.1); opacity: 0.7; }
     }
 
-    /* Ocultar preloader */
     body.loaded #preloader {
       opacity: 0;
       visibility: hidden;
+    }
+
+    /* Contenido principal */
+    #contenido {
+      display: none;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .logo-side {
+      transform: translateX(-100%);
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    .text-side {
+      transform: translateX(100%);
+      opacity: 0;
+      transition: all 1s ease;
+      max-width: 500px;
+    }
+
+    .show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 16px;
+      color: #111;
+      background: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #ddd;
     }
   </style>
 </head>
@@ -52,24 +101,33 @@
     <p>Iniciando...</p>
   </div>
 
-  <!-- Aquí estaría el login -->
-  <div id="contenido" style="display:none; padding:40px;">
-    <h2>Inicia sesión</h2>
-    <form>
-      <input type="text" placeholder="Usuario" required><br><br>
-      <input type="password" placeholder="Contraseña" required><br><br>
-      <button type="submit">Entrar</button>
-    </form>
+  <!-- Contenido principal -->
+  <div id="contenido">
+    <div class="container">
+      <div class="logo-side" id="logoAnim">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Pinz Store" width="300">
+      </div>
+      <div class="text-side" id="textAnim">
+        <h1 style="font-size:32px; font-weight:bold;">Tu tienda digital de confianza</h1>
+        <p>Disfruta tus series, películas y música favoritas de manera rápida, segura y accesible.</p>
+        <button class="btn">Nuestro Catálogo</button>
+      </div>
+    </div>
   </div>
 
   <script>
     window.addEventListener("load", function(){
       setTimeout(function(){
         document.body.classList.add("loaded");
-        document.getElementById("contenido").style.display = "block";
-      }, 2500); // 2.5 segundos antes de mostrar login
+        document.getElementById("contenido").style.display = "flex";
+
+        // Activar animaciones
+        setTimeout(function(){
+          document.getElementById("logoAnim").classList.add("show");
+          document.getElementById("textAnim").classList.add("show");
+        }, 100);
+      }, 2500); // 2.5 segundos
     });
   </script>
 </body>
 </html>
-
