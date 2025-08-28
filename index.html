@@ -1,207 +1,183 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinz Store - Opiniones</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #111;
-    }
+<section class="testimonials">
+  <div class="testimonials-container">
+    <!-- Columna izquierda -->
+    <div class="testimonials-text">
+      <h2>¿Qué opinan nuestros clientes?</h2>
+    </div>
 
-    section.testimonials {
-      display: flex;
-      justify-content: center;
-      padding: 4rem 2rem;
-    }
+    <!-- Columna derecha con tarjetas -->
+    <div class="testimonials-cards">
+      <canvas id="particlesCanvas"></canvas>
 
-    .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      max-width: 1200px;
-      width: 100%;
-      gap: 2rem;
-      position: relative;
-    }
-
-    .left h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      line-height: 1.2;
-      text-align: left;
-    }
-
-    .right {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    #particlesCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .testimonial-card {
-      position: absolute;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding: 2rem;
-      text-align: center;
-      max-width: 400px;
-      z-index: 10;
-      opacity: 0;
-      transform: translateX(100%);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .testimonial-card.active {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .testimonial-card.fade-out {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-
-    .stars {
-      font-size: 1.5rem;
-      color: gold;
-      margin-top: 0.5rem;
-    }
-  </style>
-</head>
-<body>
-
-  <section class="testimonials">
-    <div class="container">
-      <!-- Columna izquierda -->
-      <div class="left">
-        <h2>¿Qué opinan<br>nuestros clientes?</h2>
+      <div class="testimonial-card">
+        <p>"Excelente servicio, rápido y confiable."</p>
+        <span>- Juan P.</span>
       </div>
-
-      <!-- Columna derecha -->
-      <div class="right">
-        <canvas id="particlesCanvas"></canvas>
-
-        <div class="testimonial-card active">
-          <p>"Fácil de usar y confiable."</p>
-          <strong>Luisa P.</strong>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="testimonial-card">
-          <p>"Excelente atención al cliente."</p>
-          <strong>Carlos G.</strong>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="testimonial-card">
-          <p>"Muy recomendado, todo seguro."</p>
-          <strong>Ana M.</strong>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-        </div>
-
+      <div class="testimonial-card">
+        <p>"Las mejores cuentas, siempre funcionando."</p>
+        <span>- Ana G.</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"Muy buena atención al cliente, recomendado."</p>
+        <span>- Carlos M.</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
- <script>
-  const canvas = document.getElementById("particlesCanvas");
-  const ctx = canvas.getContext("2d");
-  let particles = [];
+<style>
+.testimonials {
+  padding: 60px 20px;
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
 
-  function resizeCanvas() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+.testimonials-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+  align-items: center;
+}
+
+.testimonials-text h2 {
+  font-size: 2rem;
+  animation: slideInLeft 1s ease forwards;
+}
+
+.testimonials-cards {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#particlesCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1; /* 🔽 debajo de las tarjetas */
+}
+
+.testimonial-card {
+  position: absolute;
+  background: #222;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  max-width: 400px;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.8s ease;
+  z-index: 2; /* 🔼 encima del canvas */
+}
+
+.testimonial-card.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.testimonial-card.fade-out {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+</style>
+
+<script>
+const canvas = document.getElementById("particlesCanvas");
+const ctx = canvas.getContext("2d");
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+class Particle {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 6 + 4;
+    this.speedX = (Math.random() - 0.5) * 6;
+    this.speedY = (Math.random() - 0.5) * 6;
+    this.opacity = 1;
   }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
-
-  class Particle {
-    constructor(x, y) {
-      this.x = x;
-      this.y = y;
-      this.size = Math.random() * 6 + 4;
-      this.speedX = (Math.random() - 0.5) * 6;
-      this.speedY = (Math.random() - 0.5) * 6;
-      this.opacity = 1;
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      this.opacity -= 0.02;
-    }
-    draw() {
-      ctx.globalAlpha = this.opacity;
-      ctx.fillStyle = "gold";
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.globalAlpha = 1;
-    }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.opacity -= 0.02;
   }
-
-  function createExplosion(x, y) {
-    for (let i = 0; i < 40; i++) {
-      particles.push(new Particle(x, y));
-    }
+  draw() {
+    ctx.globalAlpha = this.opacity;
+    ctx.fillStyle = "gold";
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
   }
+}
 
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles = particles.filter(p => p.opacity > 0);
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-    requestAnimationFrame(animateParticles);
+function createExplosion(x, y) {
+  for (let i = 0; i < 50; i++) {
+    particles.push(new Particle(x, y));
   }
-  animateParticles();
+}
 
-  // Carrusel con explosión
-  const cards = document.querySelectorAll(".testimonial-card");
-  let current = 0;
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles = particles.filter(p => p.opacity > 0);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
 
-  // ✅ Mostrar la primera tarjeta al cargar
-  cards[current].classList.add("active");
+// Carrusel con explosión
+const cards = document.querySelectorAll(".testimonial-card");
+let current = 0;
 
-  function showNextCard() {
-    const currentCard = cards[current];
-    const rect = currentCard.getBoundingClientRect();
-    const canvasRect = canvas.getBoundingClientRect();
+// ✅ Mostrar la primera tarjeta al cargar
+cards[current].classList.add("active");
 
-    const x = rect.left + rect.width / 2 - canvasRect.left;
-    const y = rect.top + rect.height / 2 - canvasRect.top;
+function showNextCard() {
+  const currentCard = cards[current];
+  const rect = currentCard.getBoundingClientRect();
+  const canvasRect = canvas.getBoundingClientRect();
 
-    // Explosión + desvanecer tarjeta actual
-    createExplosion(x, y);
-    currentCard.classList.remove("active");
-    currentCard.classList.add("fade-out");
+  const x = rect.left + rect.width / 2 - canvasRect.left;
+  const y = rect.top + rect.height / 2 - canvasRect.top;
 
-    // Pasar a la siguiente
-    setTimeout(() => {
-      currentCard.classList.remove("fade-out");
-      current = (current + 1) % cards.length;
-      cards[current].classList.add("active");
-    }, 1000); // tiempo entre tarjetas
-  }
+  // Explosión en el centro de la tarjeta
+  createExplosion(x, y);
 
-  setInterval(showNextCard, 4000); // cada 4s rota
+  currentCard.classList.remove("active");
+  currentCard.classList.add("fade-out");
+
+  setTimeout(() => {
+    currentCard.classList.remove("fade-out");
+    current = (current + 1) % cards.length;
+    cards[current].classList.add("active");
+  }, 1000);
+}
+
+setInterval(showNextCard, 4000); // cada 4s rota
 </script>
-</body>
-</html>
-
