@@ -119,85 +119,89 @@
     </div>
   </section>
 
-  <script>
-    const canvas = document.getElementById("particlesCanvas");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
+ <script>
+  const canvas = document.getElementById("particlesCanvas");
+  const ctx = canvas.getContext("2d");
+  let particles = [];
 
-    function resizeCanvas() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+  function resizeCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  class Particle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.size = Math.random() * 6 + 4;
+      this.speedX = (Math.random() - 0.5) * 6;
+      this.speedY = (Math.random() - 0.5) * 6;
+      this.opacity = 1;
     }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    class Particle {
-      constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.size = Math.random() * 6 + 4;
-        this.speedX = (Math.random() - 0.5) * 6;
-        this.speedY = (Math.random() - 0.5) * 6;
-        this.opacity = 1;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        this.opacity -= 0.02;
-      }
-      draw() {
-        ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = "gold";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.opacity -= 0.02;
     }
-
-    function createExplosion(x, y) {
-      for (let i = 0; i < 35; i++) {
-        particles.push(new Particle(x, y));
-      }
+    draw() {
+      ctx.globalAlpha = this.opacity;
+      ctx.fillStyle = "gold";
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
     }
+  }
 
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles = particles.filter(p => p.opacity > 0);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animateParticles);
+  function createExplosion(x, y) {
+    for (let i = 0; i < 40; i++) {
+      particles.push(new Particle(x, y));
     }
-    animateParticles();
+  }
 
-    // Carrusel con explosión
-    const cards = document.querySelectorAll(".testimonial-card");
-    let current = 0;
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles = particles.filter(p => p.opacity > 0);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
 
-    function showNextCard() {
-      const currentCard = cards[current];
-      const rect = currentCard.getBoundingClientRect();
-      const canvasRect = canvas.getBoundingClientRect();
+  // Carrusel con explosión
+  const cards = document.querySelectorAll(".testimonial-card");
+  let current = 0;
 
-      const x = rect.left + rect.width / 2 - canvasRect.left;
-      const y = rect.top + rect.height / 2 - canvasRect.top;
+  // ✅ Mostrar la primera tarjeta al cargar
+  cards[current].classList.add("active");
 
-      // Explosión + desvanecer tarjeta actual
-      createExplosion(x, y);
-      currentCard.classList.remove("active");
-      currentCard.classList.add("fade-out");
+  function showNextCard() {
+    const currentCard = cards[current];
+    const rect = currentCard.getBoundingClientRect();
+    const canvasRect = canvas.getBoundingClientRect();
 
-      // Pasar a la siguiente
-      setTimeout(() => {
-        currentCard.classList.remove("fade-out");
-        current = (current + 1) % cards.length;
-        cards[current].classList.add("active");
-      }, 1000); // tiempo entre tarjetas
-    }
+    const x = rect.left + rect.width / 2 - canvasRect.left;
+    const y = rect.top + rect.height / 2 - canvasRect.top;
 
-    setInterval(showNextCard, 4000); // cada 4s rota
-  </script>
+    // Explosión + desvanecer tarjeta actual
+    createExplosion(x, y);
+    currentCard.classList.remove("active");
+    currentCard.classList.add("fade-out");
+
+    // Pasar a la siguiente
+    setTimeout(() => {
+      currentCard.classList.remove("fade-out");
+      current = (current + 1) % cards.length;
+      cards[current].classList.add("active");
+    }, 1000); // tiempo entre tarjetas
+  }
+
+  setInterval(showNextCard, 4000); // cada 4s rota
+</script>
 </body>
 </html>
+
