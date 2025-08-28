@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testimonios con Explosión</title>
+  <title>Testimonios Explosivos</title>
   <style>
     body {
       margin: 0;
@@ -88,7 +88,7 @@
     let particles = [];
     let testimonialIndex = 0;
 
-    // Testimonios (ejemplo, puedes poner los tuyos)
+    // Testimonios
     const testimonios = [
       { texto: '"Compré Netflix y todo funcionó perfecto 👌"', autor: "Carlos M." },
       { texto: '"Muy rápido el servicio con Disney+ 💯"', autor: "Andrea P." },
@@ -98,17 +98,16 @@
 
     // Crear explosión de partículas
     function createExplosion(x, y) {
-      particles = [];
-      for (let i = 0; i < 100; i++) { 
+      for (let i = 0; i < 80; i++) { 
         let img = new Image();
-        img.src = "ray.png"; // tu PNG de rayo transparente
+        img.src = "ray.png"; // ⚡ usa tu PNG aquí
         particles.push({
           x: x,
           y: y,
-          vx: (Math.random() - 0.5) * 14,
-          vy: (Math.random() - 0.5) * 14,
-          life: 100 + Math.random() * 50,
-          size: 20 + Math.random() * 20,
+          vx: (Math.random() - 0.5) * 16,
+          vy: (Math.random() - 0.5) * 16,
+          life: 60 + Math.random() * 40,
+          size: 15 + Math.random() * 25,
           img: img
         });
       }
@@ -123,6 +122,7 @@
         p.life--;
 
         ctx.save();
+        ctx.globalAlpha = Math.max(p.life / 100, 0);
         ctx.translate(p.x, p.y);
         ctx.rotate(Math.random() * Math.PI);
         ctx.drawImage(p.img, -p.size/2, -p.size/2, p.size, p.size);
@@ -150,27 +150,23 @@
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
+        // Explosión justo cuando desaparece
         createExplosion(centerX, centerY);
-
-        // Desvanecer tarjeta
         card.style.opacity = "0";
+
         setTimeout(() => {
           card.style.display = "none";
-
-          // Pasar al siguiente testimonio
           testimonialIndex = (testimonialIndex + 1) % testimonios.length;
           setTimeout(() => {
             showTestimonial(testimonialIndex);
-          }, 500); // pequeño delay entre explosión y siguiente
+          }, 500);
         }, 800);
 
-      }, 3000); // tiempo visible en pantalla
+      }, 3000);
     }
 
-    // Iniciar
     showTestimonial(testimonialIndex);
 
-    // Ajustar canvas al cambiar ventana
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
