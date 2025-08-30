@@ -112,7 +112,7 @@
       
       <!-- Card 1 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/150?img=12" alt="Andrés Pulido" class="avatar">
+        <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Andres" alt="Andrés Pulido" class="avatar">
         <h3>
           Andrés Pulido
           <span class="verificado">
@@ -129,7 +129,7 @@
 
       <!-- Card 2 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/150?img=47" alt="Carolina Gómez" class="avatar">
+        <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Carolina" alt="Carolina Gómez" class="avatar">
         <h3>
           Carolina Gómez
           <span class="verificado">
@@ -146,7 +146,7 @@
 
       <!-- Card 3 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/150?img=8" alt="Juan Pérez" class="avatar">
+        <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Juan" alt="Juan Pérez" class="avatar">
         <h3>
           Juan Pérez
           <span class="verificado">
@@ -163,7 +163,7 @@
 
       <!-- Card 4 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/150?img=32" alt="Mariana Torres" class="avatar">
+        <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Mariana" alt="Mariana Torres" class="avatar">
         <h3>
           Mariana Torres
           <span class="verificado">
@@ -180,7 +180,7 @@
 
       <!-- Card 5 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/150?img=15" alt="Felipe Martínez" class="avatar">
+        <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Felipe" alt="Felipe Martínez" class="avatar">
         <h3>
           Felipe Martínez
           <span class="verificado">
@@ -202,15 +202,16 @@
 <style>
 .opiniones {
   background: #fff;
-  padding: 50px 20px;
+  padding: 40px 20px;
 }
 
 .titulo-opiniones {
+  display: block;
+  width: 100%;
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
   color: #222;
-  font-weight: 700;
 }
 
 .carousel {
@@ -227,12 +228,11 @@
 
 .card {
   background: #f9f9f9;
-  padding: 20px;
   border-radius: 12px;
+  padding: 20px;
+  min-width: 250px;
   text-align: center;
-  min-width: 220px;
-  max-width: 250px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
 .card:hover {
@@ -243,50 +243,35 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  margin: 0 auto 15px;
+  margin: 0 auto 10px;
   display: block;
-  transition: transform 0.3s ease;
-}
-.avatar:hover {
-  transform: scale(1.1);
-}
-
-.card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
 }
 
 .verificado {
-  display: inline-flex;
+  margin-left: 6px;
   vertical-align: middle;
 }
 
 .fecha {
-  font-size: 0.85rem;
-  color: #777;
-  margin-bottom: 8px;
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .estrellas {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  margin: 6px 0;
 }
 
 .comentario {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #333;
   line-height: 1.4;
 }
 
-/* Animación carrusel */
+/* Animación del carrusel infinito */
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 </style>
-
 
