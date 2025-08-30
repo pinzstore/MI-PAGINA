@@ -105,126 +105,175 @@
 
 
 
-<section class="opiniones">
-  <h2 class="titulo-opiniones">Opiniones de nuestros clientes</h2>
-  <div class="carousel">
-    <div class="cards-container">
-      
-      <!-- Card 1 -->
-      <div class="card">
-        <img src="https://i.pravatar.cc/100?img=1" alt="Andrés Pulido">
-        <h3>
-          Andrés Pulido
-          <span class="verificado">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
-              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
-            </svg>
-          </span>
-        </h3>
-        <p class="fecha">2025-02-26</p>
-        <p class="estrellas">⭐⭐⭐⭐⭐</p>
-        <p class="comentario">Muy buena experiencia de compra.</p>
-      </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comentarios Clientes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-      <!-- Card 2 -->
-      <div class="card">
-        <img src="https://i.pravatar.cc/100?img=2" alt="Carolina Gómez">
-        <h3>
-          Carolina Gómez
-          <span class="verificado">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
-              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
-            </svg>
-          </span>
-        </h3>
-        <p class="fecha">2025-06-11</p>
-        <p class="estrellas">⭐⭐⭐⭐⭐</p>
-        <p class="comentario">Servicio impecable, lo recomiendo.</p>
-      </div>
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1100px;
+    }
 
-      <!-- Card 3 -->
-      <div class="card">
-        <img src="https://i.pravatar.cc/100?img=3" alt="Juan Pérez">
-        <h3>
-          Juan Pérez
-          <span class="verificado">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
-              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
-            </svg>
-          </span>
-        </h3>
-        <p class="fecha">2024-12-03</p>
-        <p class="estrellas">⭐⭐⭐⭐⭐</p>
-        <p class="comentario">Muy buena atención, volveré a comprar.</p>
-      </div>
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
 
-      <!-- Card 4 -->
-      <div class="card">
-        <img src="https://i.pravatar.cc/100?img=4" alt="Mariana Torres">
-        <h3>
-          Mariana Torres
-          <span class="verificado">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
-              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
-            </svg>
-          </span>
-        </h3>
-        <p class="fecha">2025-07-14</p>
-        <p class="estrellas">⭐⭐⭐⭐⭐</p>
-        <p class="comentario">Entrega rápida y producto original.</p>
-      </div>
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-      <!-- Card 5 -->
-      <div class="card">
-        <img src="https://i.pravatar.cc/100?img=5" alt="Felipe Martínez">
-        <h3>
-          Felipe Martínez
-          <span class="verificado">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
-              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
-            </svg>
-          </span>
-        </h3>
-        <p class="fecha">2025-01-08</p>
-        <p class="estrellas">⭐⭐⭐⭐⭐</p>
-        <p class="comentario">Excelente calidad y muy buen soporte.</p>
-      </div>
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      display: block;
+    }
 
+    h3 {
+      font-size: 1.1rem;
+      margin: 8px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .verificado svg {
+      vertical-align: middle;
+    }
+
+    .fecha {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .estrellas {
+      font-size: 1.2rem;
+      color: #FFD700;
+      margin: 8px 0;
+    }
+
+    .comentario {
+      font-size: 0.95rem;
+      color: #333;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>⭐ Opiniones de Nuestros Clientes ⭐</h2>
+
+  <div class="contenedor">
+
+    <!-- COMENTARIO 1 -->
+    <div class="card">
+      <img src="https://i.pravatar.cc/100?img=72" alt="Valentina Hernández Roldán" class="avatar">
+      <h3>Valentina Hernández Roldán 
+        <span class="verificado">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+            <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+          </svg>
+        </span>
+      </h3>
+      <p class="fecha">2024-08-15</p>
+      <p class="estrellas">⭐⭐⭐⭐⭐</p>
+      <p class="comentario">Buena atención por parte de los asesores.</p>
     </div>
+
+    <!-- COMENTARIO 2 -->
+    <div class="card">
+      <img src="https://i.pravatar.cc/100?img=15" alt="Andrés Pulido" class="avatar">
+      <h3>Andrés Pulido 
+        <span class="verificado">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+            <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+          </svg>
+        </span>
+      </h3>
+      <p class="fecha">2024-09-10</p>
+      <p class="estrellas">⭐⭐⭐⭐⭐</p>
+      <p class="comentario">Excelente servicio, rápidos y efectivos.</p>
+    </div>
+
+    <!-- COMENTARIO 3 -->
+    <div class="card">
+      <img src="https://i.pravatar.cc/100?img=83" alt="Carolina Gómez" class="avatar">
+      <h3>Carolina Gómez 
+        <span class="verificado">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+            <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+          </svg>
+        </span>
+      </h3>
+      <p class="fecha">2024-10-05</p>
+      <p class="estrellas">⭐⭐⭐⭐⭐</p>
+      <p class="comentario">Servicio impecable, lo recomiendo.</p>
+    </div>
+
+    <!-- COMENTARIO 4 -->
+    <div class="card">
+      <img src="https://i.pravatar.cc/100?img=20" alt="Juan Pérez" class="avatar">
+      <h3>Juan Pérez 
+        <span class="verificado">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+            <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+          </svg>
+        </span>
+      </h3>
+      <p class="fecha">2024-11-02</p>
+      <p class="estrellas">⭐⭐⭐⭐⭐</p>
+      <p class="comentario">Muy buena atención, volveré a comprar.</p>
+    </div>
+
+    <!-- COMENTARIO 5 -->
+    <div class="card">
+      <img src="https://i.pravatar.cc/100?img=88" alt="Laura Méndez" class="avatar">
+      <h3>Laura Méndez 
+        <span class="verificado">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+            <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+          </svg>
+        </span>
+      </h3>
+      <p class="fecha">2024-12-15</p>
+      <p class="estrellas">⭐⭐⭐⭐⭐</p>
+      <p class="comentario">Muy responsables y atentos en todo momento.</p>
+    </div>
+
   </div>
-</section>
 
-<style>
-.opiniones {
-  background: #fff;
-  padding: 40px 20px;
-}
+</body>
+</html>
 
-.titulo-opiniones {
-  display: block;
-  width: 100%;
-  text-align: center;   /* CENTRA el título */
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #222;
-}
 
-.carousel {
-  overflow: hidden;
-  display: flex;
-  justify-content: center; /* Centra el carrusel */
-}
-
-.cards-container {
-  display: inline-flex;
-  gap: 20px;
-  animation: scroll 30s linear infinite;
-}
-</style>
 
 
