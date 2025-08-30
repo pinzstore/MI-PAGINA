@@ -1,3 +1,82 @@
+
+<!-- HERO / ENCABEZADO -->
+<section class="hero">
+  <div class="hero-wrapper">
+    
+    <!-- Columna izquierda con logo -->
+    <div class="hero-left">
+      <img src="pinz-logo.png" alt="Pinz Store" class="hero-logo">
+    </div>
+
+    <!-- Columna derecha con texto -->
+    <div class="hero-right">
+      <h1>Tu tienda digital de confianza</h1>
+      <p>Disfruta tus series, películas y música favoritas de manera rápida, segura y accesible.</p>
+      <a href="#catalogo" class="hero-btn">Nuestro Catálogo</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.hero {
+  background: #000; /* Fondo negro */
+  color: white;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Columna izquierda */
+.hero-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-logo {
+  max-width: 300px; /* Ajusta el tamaño de tu logo */
+  width: 100%;
+}
+
+/* Columna derecha */
+.hero-right h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+.hero-right p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #ddd;
+  line-height: 1.6;
+}
+.hero-btn {
+  display: inline-block;
+  background: white;
+  color: black;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.hero-btn:hover {
+  background: #f1c40f; /* Amarillo para resaltar en hover */
+  color: black;
+}
+</style>
+
+
 <section class="testimonials">
   <div class="testimonials-wrapper">
     
@@ -206,5 +285,6 @@ function showNextCard() {
 
 setInterval(showNextCard, 4000);
 </script>
+
 
 
