@@ -1,4 +1,3 @@
-
 <!-- HERO / ENCABEZADO -->
 <section class="hero">
   <div class="hero-wrapper">
@@ -25,6 +24,7 @@
   padding: 100px 20px;
   display: flex;
   justify-content: center;
+  overflow: hidden; /* Para que no se vean al inicio fuera del contenedor */
 }
 
 .hero-wrapper {
@@ -43,11 +43,24 @@
   align-items: center;
 }
 .hero-logo {
-  max-width: 300px; /* Ajusta el tamaño de tu logo */
+  max-width: 300px;
   width: 100%;
+  transform: translateX(-120%); /* Inicio fuera de pantalla */
+  opacity: 0;
+  animation: slideInLeft 1.2s ease forwards;
+  transition: transform 0.4s ease;
+}
+.hero-logo:hover {
+  transform: scale(1.1); /* Zoom al pasar mouse */
 }
 
 /* Columna derecha */
+.hero-right {
+  transform: translateX(120%); /* Inicio fuera de pantalla */
+  opacity: 0;
+  animation: slideInRight 1.2s ease forwards;
+  animation-delay: 0.3s; /* Ligeramente después del logo */
+}
 .hero-right h1 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -71,10 +84,28 @@
   transition: background 0.3s;
 }
 .hero-btn:hover {
-  background: #f1c40f; /* Amarillo para resaltar en hover */
+  background: #f1c40f; /* Amarillo al hover */
   color: black;
 }
+
+/* Animaciones */
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 </style>
+
+
+
+
 
 
 <section class="testimonials">
@@ -285,6 +316,7 @@ function showNextCard() {
 
 setInterval(showNextCard, 4000);
 </script>
+
 
 
 
