@@ -108,31 +108,71 @@
 
 
 
-<!-- SECCIÓN OPINIONES -->
 <section class="opinions-carousel">
   <h2>Opiniones de nuestros clientes</h2>
   <div class="carousel">
     <div class="carousel-track">
-      <!-- Opiniones -->
-      <div class="review">"En el momento de una falla con la plataforma, fue muy rápida la solución, muy amables." <br><span>- Laura R.</span></div>
-      <div class="review">"Excelente servicio, rápidos y efectivos." <br><span>- Andrés P.</span></div>
-      <div class="review">"Super atentos y educados. Saben explicar con paciencia a quienes no somos pilas en esto." <br><span>- Aída L.</span></div>
-      <div class="review">"Las cuentas funcionan perfecto, totalmente recomendados." <br><span>- Camilo G.</span></div>
-      <div class="review">"Muy buen servicio post-venta, siempre atentos." <br><span>- Valentina S.</span></div>
-      <!-- 🔥 Duplicamos opiniones para loop infinito -->
-      <div class="review">"En el momento de una falla con la plataforma, fue muy rápida la solución, muy amables." <br><span>- Laura R.</span></div>
-      <div class="review">"Excelente servicio, rápidos y efectivos." <br><span>- Andrés P.</span></div>
-      <div class="review">"Super atentos y educados. Saben explicar con paciencia a quienes no somos pilas en esto." <br><span>- Aída L.</span></div>
-      <div class="review">"Las cuentas funcionan perfecto, totalmente recomendados." <br><span>- Camilo G.</span></div>
-      <div class="review">"Muy buen servicio post-venta, siempre atentos." <br><span>- Valentina S.</span></div>
+      
+      <!-- Opinión 1 -->
+      <div class="review">
+        <img class="avatar" src="https://i.pravatar.cc/100?img=1" alt="avatar">
+        <h3>Andres Pulido</h3>
+        <p class="date">2023-11-02</p>
+        <div class="stars">⭐⭐⭐⭐⭐ <span class="verified">✔️</span></div>
+        <p>Excelente servicio, rápidos y efectivos.</p>
+      </div>
+
+      <!-- Opinión 2 -->
+      <div class="review">
+        <img class="avatar" src="https://i.pravatar.cc/100?img=2" alt="avatar">
+        <h3>Laura Ramírez</h3>
+        <p class="date">2023-12-15</p>
+        <div class="stars">⭐⭐⭐⭐⭐ <span class="verified">✔️</span></div>
+        <p>Super atentos y con muy buen soporte.</p>
+      </div>
+
+      <!-- Opinión 3 -->
+      <div class="review">
+        <img class="avatar" src="https://i.pravatar.cc/100?img=3" alt="avatar">
+        <h3>Carlos López</h3>
+        <p class="date">2024-01-20</p>
+        <div class="stars">⭐⭐⭐⭐⭐ <span class="verified">✔️</span></div>
+        <p>Me ayudaron en minutos, súper confiables.</p>
+      </div>
+
+      <!-- Opinión 4 -->
+      <div class="review">
+        <img class="avatar" src="https://i.pravatar.cc/100?img=4" alt="avatar">
+        <h3>Valentina Torres</h3>
+        <p class="date">2024-02-05</p>
+        <div class="stars">⭐⭐⭐⭐⭐ <span class="verified">✔️</span></div>
+        <p>Las cuentas funcionan perfecto, recomendados.</p>
+      </div>
+
+      <!-- 🔥 Duplicamos para loop infinito -->
+      <div class="review">
+        <img class="avatar" src="https://i.pravatar.cc/100?img=1" alt="avatar">
+        <h3>Andres Pulido</h3>
+        <p class="date">2023-11-02</p>
+        <div class="stars">⭐⭐⭐⭐⭐ <span class="verified">✔️</span></div>
+        <p>Excelente servicio, rápidos y efectivos.</p>
+      </div>
+      <div class="review">
+        <img class="avatar" src="https://i.pravatar.cc/100?img=2" alt="avatar">
+        <h3>Laura Ramírez</h3>
+        <p class="date">2023-12-15</p>
+        <div class="stars">⭐⭐⭐⭐⭐ <span class="verified">✔️</span></div>
+        <p>Super atentos y con muy buen soporte.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
 .opinions-carousel {
-  background: #111;
-  color: #fff;
+  background: #fff;
+  color: #111;
   padding: 60px 20px;
   text-align: center;
   overflow: hidden;
@@ -141,6 +181,7 @@
 .opinions-carousel h2 {
   font-size: 2rem;
   margin-bottom: 40px;
+  color: #000;
 }
 
 .carousel {
@@ -155,30 +196,55 @@
 }
 
 .review {
-  min-width: 300px;
-  background: #1c1c1c;
+  min-width: 280px;
+  max-width: 300px;
+  background: #fff;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  font-size: 1rem;
-  line-height: 1.5;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
   flex-shrink: 0;
 }
 
-.review span {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #bbb;
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
-/* Animación de desplazamiento */
+.review h3 {
+  margin: 5px 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.stars {
+  font-size: 1.2rem;
+  color: #FFD700;
+  margin-bottom: 10px;
+}
+
+.verified {
+  color: #2196F3;
+  font-size: 1rem;
+}
+
+.review p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Animación carrusel infinito */
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 </style>
-
-
-
-
