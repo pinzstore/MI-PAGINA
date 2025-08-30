@@ -105,6 +105,7 @@
 
 
 
+<!-- SECCIÓN OPINIONES -->
 <section class="opiniones">
   <h2 class="titulo-opiniones">Opiniones de nuestros clientes</h2>
   <div class="carousel">
@@ -112,7 +113,7 @@
       
       <!-- Card 1 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/100?img=1" alt="Andrés Pulido">
+        <div class="avatar">AP</div>
         <h3>
           Andrés Pulido
           <span class="verificado">
@@ -129,7 +130,7 @@
 
       <!-- Card 2 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/100?img=2" alt="Carolina Gómez">
+        <div class="avatar">CG</div>
         <h3>
           Carolina Gómez
           <span class="verificado">
@@ -146,7 +147,7 @@
 
       <!-- Card 3 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/100?img=3" alt="Juan Pérez">
+        <div class="avatar">JP</div>
         <h3>
           Juan Pérez
           <span class="verificado">
@@ -163,7 +164,7 @@
 
       <!-- Card 4 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/100?img=4" alt="Mariana Torres">
+        <div class="avatar">MT</div>
         <h3>
           Mariana Torres
           <span class="verificado">
@@ -180,7 +181,7 @@
 
       <!-- Card 5 -->
       <div class="card">
-        <img src="https://i.pravatar.cc/100?img=5" alt="Felipe Martínez">
+        <div class="avatar">FM</div>
         <h3>
           Felipe Martínez
           <span class="verificado">
@@ -202,29 +203,94 @@
 <style>
 .opiniones {
   background: #fff;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
 .titulo-opiniones {
-  display: block;
-  width: 100%;
-  text-align: center;   /* CENTRA el título */
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
   color: #222;
 }
 
 .carousel {
   overflow: hidden;
   display: flex;
-  justify-content: center; /* Centra el carrusel */
+  justify-content: center;
 }
 
 .cards-container {
   display: inline-flex;
-  gap: 20px;
+  gap: 25px;
   animation: scroll 30s linear infinite;
 }
+
+.card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 250px;
+  max-width: 280px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Avatar */
+.avatar {
+  width: 80px;
+  height: 80px;
+  background: #0095f6;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  box-shadow: 0 0 10px rgba(0,149,246,0.6);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.verificado {
+  display: inline-flex;
+}
+
+.fecha {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.estrellas {
+  font-size: 1.2rem;
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+.comentario {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Animación carrusel */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 </style>
+
 
 
