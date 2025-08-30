@@ -122,6 +122,10 @@ const canvas = document.getElementById("particlesCanvas");
 const ctx = canvas.getContext("2d");
 let particles = [];
 
+// Cargar la imagen que se usará como partícula
+const particleImg = new Image();
+particleImg.src = "https://res.cloudinary.com/dfkola0ej/image/upload/v1756420566/ChatGPT_Image_28_ago_2025_05_35_54_p.m._felczs.png"; // 👉 Cambia esta ruta por tu imagen
+
 function resizeCanvas() {
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
@@ -133,7 +137,7 @@ class Particle {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = Math.random() * 6 + 4;
+    this.size = Math.random() * 20 + 10; // tamaño de la imagen
     this.speedX = (Math.random() - 0.5) * 6;
     this.speedY = (Math.random() - 0.5) * 6;
     this.opacity = 1;
@@ -145,16 +149,22 @@ class Particle {
   }
   draw() {
     ctx.globalAlpha = this.opacity;
-    ctx.fillStyle = "gold";
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
+
+    // Dibuja la imagen como partícula
+    ctx.drawImage(
+      particleImg,
+      this.x - this.size / 2,
+      this.y - this.size / 2,
+      this.size,
+      this.size
+    );
+
     ctx.globalAlpha = 1;
   }
 }
 
 function createExplosion(x, y) {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 30; i++) {  // menos partículas para no sobrecargar
     particles.push(new Particle(x, y));
   }
 }
@@ -170,6 +180,7 @@ function animateParticles() {
 }
 animateParticles();
 
+// Rotación de testimonios
 const cards = document.querySelectorAll(".testimonial-card");
 let current = 0;
 cards[current].classList.add("active");
@@ -195,4 +206,5 @@ function showNextCard() {
 
 setInterval(showNextCard, 4000);
 </script>
+
 
