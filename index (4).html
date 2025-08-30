@@ -1,0 +1,230 @@
+<!-- HERO / ENCABEZADO -->
+<section class="hero">
+  <div class="hero-wrapper">
+    
+    <!-- Columna izquierda con logo -->
+    <div class="hero-left">
+      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Pinz Store" class="hero-logo">
+    </div>
+
+    <!-- Columna derecha con texto -->
+    <div class="hero-right">
+      <h1>Tu tienda digital de confianza</h1>
+      <p>Disfruta tus series, películas y música favoritas de manera rápida, segura y accesible.</p>
+      <a href="#catalogo" class="hero-btn">Nuestro Catálogo</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.hero {
+  background: #000; /* Fondo negro */
+  color: white;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* Para que no se vean al inicio fuera del contenedor */
+}
+
+.hero-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Columna izquierda */
+.hero-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-logo {
+  max-width: 300px;
+  width: 100%;
+  transform: translateX(-120%); /* Inicio fuera de pantalla */
+  opacity: 0;
+  animation: slideInLeft 1.2s ease forwards;
+  transition: transform 0.4s ease;
+}
+.hero-logo:hover {
+  transform: scale(1.1); /* Zoom al pasar mouse */
+}
+
+/* Columna derecha */
+.hero-right {
+  transform: translateX(120%); /* Inicio fuera de pantalla */
+  opacity: 0;
+  animation: slideInRight 1.2s ease forwards;
+  animation-delay: 0.3s; /* Ligeramente después del logo */
+}
+.hero-right h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+.hero-right p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #ddd;
+  line-height: 1.6;
+}
+.hero-btn {
+  display: inline-block;
+  background: white;
+  color: black;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.hero-btn:hover {
+  background: #f1c40f; /* Amarillo al hover */
+  color: black;
+}
+
+/* Animaciones */
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+</style>
+
+
+
+<section class="opiniones">
+  <h2 class="titulo-opiniones">Opiniones de nuestros clientes</h2>
+  <div class="carousel">
+    <div class="cards-container">
+      
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="https://i.pravatar.cc/100?img=1" alt="Andrés Pulido">
+        <h3>
+          Andrés Pulido
+          <span class="verificado">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+            </svg>
+          </span>
+        </h3>
+        <p class="fecha">2025-02-26</p>
+        <p class="estrellas">⭐⭐⭐⭐⭐</p>
+        <p class="comentario">Muy buena experiencia de compra.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="https://i.pravatar.cc/100?img=2" alt="Carolina Gómez">
+        <h3>
+          Carolina Gómez
+          <span class="verificado">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+            </svg>
+          </span>
+        </h3>
+        <p class="fecha">2025-06-11</p>
+        <p class="estrellas">⭐⭐⭐⭐⭐</p>
+        <p class="comentario">Servicio impecable, lo recomiendo.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="https://i.pravatar.cc/100?img=3" alt="Juan Pérez">
+        <h3>
+          Juan Pérez
+          <span class="verificado">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+            </svg>
+          </span>
+        </h3>
+        <p class="fecha">2024-12-03</p>
+        <p class="estrellas">⭐⭐⭐⭐⭐</p>
+        <p class="comentario">Muy buena atención, volveré a comprar.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="https://i.pravatar.cc/100?img=4" alt="Mariana Torres">
+        <h3>
+          Mariana Torres
+          <span class="verificado">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+            </svg>
+          </span>
+        </h3>
+        <p class="fecha">2025-07-14</p>
+        <p class="estrellas">⭐⭐⭐⭐⭐</p>
+        <p class="comentario">Entrega rápida y producto original.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card">
+        <img src="https://i.pravatar.cc/100?img=5" alt="Felipe Martínez">
+        <h3>
+          Felipe Martínez
+          <span class="verificado">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="12" fill="#0095f6"/> 
+              <path fill="#fff" d="M10.6 16.2l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z"/>
+            </svg>
+          </span>
+        </h3>
+        <p class="fecha">2025-01-08</p>
+        <p class="estrellas">⭐⭐⭐⭐⭐</p>
+        <p class="comentario">Excelente calidad y muy buen soporte.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.opiniones {
+  background: #fff;
+  padding: 40px 20px;
+}
+
+.titulo-opiniones {
+  display: block;
+  width: 100%;
+  text-align: center;   /* CENTRA el título */
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.carousel {
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Centra el carrusel */
+}
+
+.cards-container {
+  display: inline-flex;
+  gap: 20px;
+  animation: scroll 30s linear infinite;
+}
+</style>
+
+
