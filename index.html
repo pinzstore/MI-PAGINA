@@ -7,7 +7,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #121212; /* Fondo oscuro, puedes cambiarlo */
+    background-color: #121212; /* Fondo oscuro */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,13 +18,12 @@
   /* Logo animado */
   #preloader img {
     width: 150px; /* Tamaño del logo */
-    animation: spin 8s linear infinite; /* Animación de giro */
+    animation: spin 2s linear infinite; /* Animación giratoria */
   }
 
-  /* Animación de giro */
   @keyframes spin {
     0% { transform: rotate(0deg); }
-    100% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
   }
 
   /* Texto opcional de "Cargando..." */
@@ -48,14 +47,21 @@
 </div>
 
 <script>
-  // Espera a que toda la página se cargue
+  const MIN_TIME = 5000; // 5 segundos
+  const startTime = Date.now();
+
   window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    preloader.style.transition = 'opacity 0.5s ease';
-    preloader.style.opacity = 0;
+    const elapsed = Date.now() - startTime;
+    const remaining = MIN_TIME - elapsed;
+
     setTimeout(() => {
-      preloader.style.display = 'none';
-    }, 500);
+      const preloader = document.getElementById('preloader');
+      preloader.style.transition = 'opacity 0.5s ease';
+      preloader.style.opacity = 0;
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    }, remaining > 0 ? remaining : 0);
   });
 </script>
 
@@ -1206,6 +1212,7 @@
   100% { transform: translateX(-50%); }
 }
 </style>
+
 
 
 
