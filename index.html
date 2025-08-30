@@ -15,15 +15,15 @@
     flex-direction: column;
   }
 
-  /* Logo animado */
+  /* Logo con animación de zoom */
   #preloader img {
     width: 150px; /* Tamaño del logo */
-    animation: spin 2s linear infinite; /* Animación giratoria */
+    animation: zoom 1.5s ease-in-out infinite; /* Animación de zoom */
   }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  @keyframes zoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
   }
 
   /* Texto opcional de "Cargando..." */
@@ -47,7 +47,7 @@
 </div>
 
 <script>
-  const MIN_TIME = 5000; // 5 segundos
+  const MIN_TIME = 4000; // 4 segundos
   const startTime = Date.now();
 
   window.addEventListener('load', function() {
@@ -1212,6 +1212,7 @@
   100% { transform: translateX(-50%); }
 }
 </style>
+
 
 
 
