@@ -108,215 +108,76 @@
 
 
 
-<section class="testimonials">
-  <div class="testimonials-wrapper">
-    
-    <!-- Columna izquierda -->
-    <div class="testimonials-left">
-      <h2>¿Qué opinan nuestros clientes?</h2>
-      <p>Más de 50 compradores satisfechos con nuestras cuentas de streaming.</p>
+<!-- SECCIÓN OPINIONES -->
+<section class="opinions-carousel">
+  <h2>Opiniones de nuestros clientes</h2>
+  <div class="carousel">
+    <div class="carousel-track">
+      <!-- Opiniones -->
+      <div class="review">"En el momento de una falla con la plataforma, fue muy rápida la solución, muy amables." <br><span>- Laura R.</span></div>
+      <div class="review">"Excelente servicio, rápidos y efectivos." <br><span>- Andrés P.</span></div>
+      <div class="review">"Super atentos y educados. Saben explicar con paciencia a quienes no somos pilas en esto." <br><span>- Aída L.</span></div>
+      <div class="review">"Las cuentas funcionan perfecto, totalmente recomendados." <br><span>- Camilo G.</span></div>
+      <div class="review">"Muy buen servicio post-venta, siempre atentos." <br><span>- Valentina S.</span></div>
+      <!-- 🔥 Duplicamos opiniones para loop infinito -->
+      <div class="review">"En el momento de una falla con la plataforma, fue muy rápida la solución, muy amables." <br><span>- Laura R.</span></div>
+      <div class="review">"Excelente servicio, rápidos y efectivos." <br><span>- Andrés P.</span></div>
+      <div class="review">"Super atentos y educados. Saben explicar con paciencia a quienes no somos pilas en esto." <br><span>- Aída L.</span></div>
+      <div class="review">"Las cuentas funcionan perfecto, totalmente recomendados." <br><span>- Camilo G.</span></div>
+      <div class="review">"Muy buen servicio post-venta, siempre atentos." <br><span>- Valentina S.</span></div>
     </div>
-
-    <!-- Columna derecha -->
-    <div class="testimonials-right">
-      <canvas id="particlesCanvas"></canvas>
-
-      <div class="testimonial-card">
-        <p>"Excelente servicio, rápido y confiable."</p>
-        <span>- Juan P.</span>
-      </div>
-      <div class="testimonial-card">
-        <p>"Las mejores cuentas, siempre funcionando."</p>
-        <span>- Ana G.</span>
-      </div>
-      <div class="testimonial-card">
-        <p>"Muy buena atención al cliente, recomendado."</p>
-        <span>- Carlos M.</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <style>
-.testimonials {
-  padding: 80px 20px;
+.opinions-carousel {
   background: #111;
-  color: white;
-  display: flex;
-  justify-content: center;
-}
-
-.testimonials-wrapper {
-  max-width: 1100px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.testimonials-left h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  animation: slideInLeft 1s ease forwards;
-}
-
-.testimonials-left p {
-  font-size: 1.1rem;
-  color: #bbb;
-}
-
-.testimonials-right {
-  position: relative;
-  width: 100%;
-  height: 280px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
   overflow: hidden;
 }
 
-#particlesCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+.opinions-carousel h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
-.testimonial-card {
-  position: absolute;
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 40px;
+  animation: scroll 40s linear infinite;
+}
+
+.review {
+  min-width: 300px;
   background: #1c1c1c;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.6);
-  max-width: 420px;
-  text-align: center;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.8s ease;
-  z-index: 2;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  font-size: 1rem;
+  line-height: 1.5;
+  flex-shrink: 0;
 }
 
-.testimonial-card.active {
-  opacity: 1;
-  transform: translateX(0);
+.review span {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #bbb;
 }
 
-.testimonial-card.fade-out {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-.testimonial-card p {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-.testimonial-card span {
-  font-size: 0.95rem;
-  color: #aaa;
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-100px); }
-  to { opacity: 1; transform: translateX(0); }
+/* Animación de desplazamiento */
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 </style>
-
-<script>
-const canvas = document.getElementById("particlesCanvas");
-const ctx = canvas.getContext("2d");
-let particles = [];
-
-// Cargar la imagen que se usará como partícula
-const particleImg = new Image();
-particleImg.src = "https://res.cloudinary.com/dfkola0ej/image/upload/v1756420566/ChatGPT_Image_28_ago_2025_05_35_54_p.m._felczs.png"; // 👉 Cambia esta ruta por tu imagen
-
-function resizeCanvas() {
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-}
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-
-class Particle {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.size = Math.random() * 20 + 10; // tamaño de la imagen
-    this.speedX = (Math.random() - 0.5) * 6;
-    this.speedY = (Math.random() - 0.5) * 6;
-    this.opacity = 1;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.opacity -= 0.02;
-  }
-  draw() {
-    ctx.globalAlpha = this.opacity;
-
-    // Dibuja la imagen como partícula
-    ctx.drawImage(
-      particleImg,
-      this.x - this.size / 2,
-      this.y - this.size / 2,
-      this.size,
-      this.size
-    );
-
-    ctx.globalAlpha = 1;
-  }
-}
-
-function createExplosion(x, y) {
-  for (let i = 0; i < 30; i++) {  // menos partículas para no sobrecargar
-    particles.push(new Particle(x, y));
-  }
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles = particles.filter(p => p.opacity > 0);
-  particles.forEach(p => {
-    p.update();
-    p.draw();
-  });
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-// Rotación de testimonios
-const cards = document.querySelectorAll(".testimonial-card");
-let current = 0;
-cards[current].classList.add("active");
-
-function showNextCard() {
-  const currentCard = cards[current];
-  const rect = currentCard.getBoundingClientRect();
-  const canvasRect = canvas.getBoundingClientRect();
-  const x = rect.left + rect.width / 2 - canvasRect.left;
-  const y = rect.top + rect.height / 2 - canvasRect.top;
-
-  createExplosion(x, y);
-
-  currentCard.classList.remove("active");
-  currentCard.classList.add("fade-out");
-
-  setTimeout(() => {
-    currentCard.classList.remove("fade-out");
-    current = (current + 1) % cards.length;
-    cards[current].classList.add("active");
-  }, 1000);
-}
-
-setInterval(showNextCard, 4000);
-</script>
-
 
 
 
