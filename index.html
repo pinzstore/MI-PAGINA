@@ -144,7 +144,6 @@
 
 
 
-
 <!-- HERO / ENCABEZADO -->
 <section class="hero">
   <div class="hero-wrapper">
@@ -168,10 +167,10 @@
 .hero {
   background: #000; /* Fondo negro */
   color: white;
-  padding: 100px 20px;
+  padding: 80px 20px;
   display: flex;
   justify-content: center;
-  overflow: hidden; /* Para que no se vean al inicio fuera del contenedor */
+  overflow: hidden;
 }
 
 .hero-wrapper {
@@ -190,23 +189,23 @@
   align-items: center;
 }
 .hero-logo {
-  max-width: 300px;
+  max-width: 280px;
   width: 100%;
-  transform: translateX(-120%); /* Inicio fuera de pantalla */
+  transform: translateX(-120%);
   opacity: 0;
   animation: slideInLeft 1.2s ease forwards;
   transition: transform 0.4s ease;
 }
 .hero-logo:hover {
-  transform: scale(1.1); /* Zoom al pasar mouse */
+  transform: scale(1.1);
 }
 
 /* Columna derecha */
 .hero-right {
-  transform: translateX(120%); /* Inicio fuera de pantalla */
+  transform: translateX(120%);
   opacity: 0;
   animation: slideInRight 1.2s ease forwards;
-  animation-delay: 0.3s; /* Ligeramente después del logo */
+  animation-delay: 0.3s;
 }
 .hero-right h1 {
   font-size: 2.5rem;
@@ -231,7 +230,7 @@
   transition: background 0.3s;
 }
 .hero-btn:hover {
-  background: #f1c40f; /* Amarillo al hover */
+  background: #f1c40f;
   color: black;
 }
 
@@ -248,7 +247,34 @@
     opacity: 1;
   }
 }
+
+/* 📱 Responsive: móviles */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    grid-template-columns: 1fr; /* Se vuelve una sola columna */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-logo {
+    max-width: 180px; /* Logo más pequeño */
+  }
+
+  .hero-right h1 {
+    font-size: 1.8rem; /* Texto más chico */
+  }
+
+  .hero-right p {
+    font-size: 1rem;
+  }
+
+  .hero-btn {
+    padding: 10px 22px;
+    font-size: 0.95rem;
+  }
+}
 </style>
+
 
 
 <!-- Botón de WhatsApp flotante -->
@@ -1458,6 +1484,7 @@ document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observ
           drop-shadow(0 0 40px rgba(255, 0, 0, 0.5));
 }
 </style>
+
 
 
 
