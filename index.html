@@ -1226,19 +1226,16 @@
     <!-- Nequi -->
     <div class="medio-card">
       <img src="https://cdn.prod.website-files.com/6317a229ebf7723658463b4b/663a6b0d43303ddf38035997_logo-nequi.svg" alt="Nequi">
-      <p>Nequi</p>
     </div>
 
     <!-- Daviplata -->
     <div class="medio-card">
       <img src="https://play-lh.googleusercontent.com/fIwuxVTuoLOzhrKJL6GCGIKuEJc6JFu9Ii97cp0nFWE61qpfeaIhFBiNL5wFcydvhQA=s96-rw" alt="Daviplata">
-      <p>Daviplata</p>
     </div>
 
     <!-- PayPal -->
     <div class="medio-card">
       <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-      <p>PayPal</p>
     </div>
 
   </div>
@@ -1249,13 +1246,15 @@
 .medios-pago {
   padding: 60px 20px;
   text-align: center;
-  background: #f8f9fa; /* Fondo gris claro */
+  background: #111; /* Fondo oscuro */
 }
 
 .medios-pago h2 {
   font-size: 2rem;
   margin-bottom: 40px;
-  color: #333;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .medios-container {
@@ -1266,42 +1265,25 @@
 }
 
 .medio-card {
-  background: #fff;
+  background: #1a1a1a;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(255,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,0,0,0.8);
 }
 
 .medio-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px rgba(255,0,0,1);
 }
 
 .medio-card img {
-  max-width: 100px;
+  max-width: 120px;
   height: auto;
-  margin-bottom: 15px;
-}
-
-.medio-card p {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #333;
 }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
