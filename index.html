@@ -1296,7 +1296,7 @@
 <section class="faq-section">
   <div class="faq-container">
     <!-- Texto a la izquierda -->
-    <div class="faq-left animate-bounce">
+    <div class="faq-left hidden">
       <h2>Preguntas más frecuentes</h2>
       <p>
         A continuación, te presentamos algunas de las preguntas más frecuentes que nuestros clientes suelen hacer al solicitar una cuenta premium.  
@@ -1306,7 +1306,7 @@
     </div>
 
     <!-- Preguntas a la derecha -->
-    <div class="faq-right animate-fade">
+    <div class="faq-right hidden">
       <div class="faq-item">
         <button class="faq-question">¿En qué países están disponibles las cuentas premium?</button>
         <div class="faq-answer">Nuestras cuentas están disponibles en toda Latinoamérica, España y otros países.</div>
@@ -1367,7 +1367,7 @@
 }
 
 .faq-left p {
-  color: #4a356c;
+  color: #333;
   line-height: 1.6;
 }
 
@@ -1415,7 +1415,27 @@
   padding-bottom: 15px;
 }
 
-/* ANIMACIONES */
+/* Ocultar al inicio */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+/* Cuando aparece */
+.show-bounce {
+  opacity: 1;
+  transform: translateY(0);
+  animation: bounceIn 1s ease;
+}
+
+.show-fade {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInRight 1s ease;
+}
+
+/* Animaciones */
 @keyframes bounceIn {
   0% { transform: scale(0.9); opacity: 0; }
   50% { transform: scale(1.05); opacity: 1; }
@@ -1426,14 +1446,6 @@
 @keyframes fadeInRight {
   from { opacity: 0; transform: translateX(30px); }
   to { opacity: 1; transform: translateX(0); }
-}
-
-.animate-bounce {
-  animation: bounceIn 1s ease;
-}
-
-.animate-fade {
-  animation: fadeInRight 1s ease;
 }
 </style>
 
@@ -1453,7 +1465,24 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
     }
   });
 });
+
+// Intersection Observer para animación al hacer scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (entry.target.classList.contains("faq-left")) {
+        entry.target.classList.add("show-bounce");
+      } else {
+        entry.target.classList.add("show-fade");
+      }
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observe(el));
 </script>
+
 
 
 
