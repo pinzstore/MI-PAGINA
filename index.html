@@ -1292,53 +1292,33 @@
 
 
 
-<!-- SECCIÓN PREGUNTAS FRECUENTES -->
+<!-- SECCIÓN FAQ -->
 <section class="faq-section">
-  <div class="faq-container">
-    <!-- Texto a la izquierda -->
-    <div class="faq-left hidden">
-      <h2>Preguntas más frecuentes</h2>
-      <p>
-        A continuación, te presentamos algunas de las preguntas más frecuentes que nuestros clientes suelen hacer al solicitar una cuenta premium.  
-        No obstante, si tienes alguna otra duda contáctanos directamente vía WhatsApp para obtener más información.  
-        Estaremos encantados de ayudarte en todo lo que necesites.
-      </p>
+  <!-- Columna izquierda -->
+  <div class="faq-left hidden">
+    <h2>Preguntas más frecuentes</h2>
+    <p>
+      A continuación, te presentamos algunas de las preguntas más frecuentes que nuestros clientes suelen hacer al solicitar una cuenta premium. 
+      No obstante, si tienes alguna otra duda contáctanos directamente vía WhatsApp para obtener más información. 
+      Estaremos encantados de ayudarte en todo lo que necesites.
+    </p>
+  </div>
+
+  <!-- Columna derecha -->
+  <div class="faq-right hidden">
+    <div class="faq-item">
+      <button class="faq-question">¿En qué países están disponibles las cuentas premium?</button>
+      <div class="faq-answer">Actualmente, en todos los países de habla hispana...</div>
     </div>
 
-    <!-- Preguntas a la derecha -->
-    <div class="faq-right hidden">
-      <div class="faq-item">
-        <button class="faq-question">¿En qué países están disponibles las cuentas premium?</button>
-        <div class="faq-answer">Nuestras cuentas están disponibles en toda Latinoamérica, España y otros países.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Cómo ingreso a mi cuenta?</button>
-        <div class="faq-answer">Te enviaremos los datos de acceso vía correo electrónico o WhatsApp al confirmar tu compra.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Cómo funciona el proceso de compra en tu plataforma?</button>
-        <div class="faq-answer">Eliges tu cuenta, realizas el pago y recibes los accesos en minutos.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Cuál es la duración de las suscripciones?</button>
-        <div class="faq-answer">Depende del plan que compres, normalmente entre 1 y 12 meses.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Puedo renovar mi suscripción cuando expire?</button>
-        <div class="faq-answer">Sí, puedes renovar fácilmente con nosotros sin perder tus accesos.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Qué métodos de pago aceptas?</button>
-        <div class="faq-answer">Aceptamos Nequi, Daviplata, Paypal y transferencias bancarias.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Ofrecen soporte técnico?</button>
-        <div class="faq-answer">Claro, ofrecemos soporte vía WhatsApp todos los días.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Tienen garantía los servicios?</button>
-        <div class="faq-answer">Sí, todos nuestros servicios cuentan con garantía durante el tiempo contratado.</div>
-      </div>
+    <div class="faq-item">
+      <button class="faq-question">¿Cuánto tiempo tardan en entregar la cuenta?</button>
+      <div class="faq-answer">El proceso es inmediato, máximo 5 minutos después del pago.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">¿Puedo compartir mi cuenta con otra persona?</button>
+      <div class="faq-answer">Depende del plan adquirido, algunos son personales y otros multiusuario.</div>
     </div>
   </div>
 </section>
@@ -1346,106 +1326,93 @@
 <!-- ESTILOS -->
 <style>
 .faq-section {
-  padding: 60px 20px;
-  background: #fff;
-}
-
-.faq-container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+  padding: 60px 20px;
+  background-color: #f5f5dc; /* Fondo beige */
+  border-radius: 12px;
   align-items: start;
 }
 
 .faq-left h2 {
-  font-size: 2.3rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #4a148c;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222;
 }
 
 .faq-left p {
-  color: #333;
+  font-size: 1.1rem;
   line-height: 1.6;
+  color: #444;
 }
 
-/* FAQ Items */
-.faq-right .faq-item {
+/* Preguntas FAQ */
+.faq-item {
+  margin-bottom: 15px;
   border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 
 .faq-question {
   background: none;
   border: none;
-  outline: none;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 15px 0;
   width: 100%;
   text-align: left;
-  color: #4a148c;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 10px 0;
+  transition: color 0.3s;
 }
 
-.faq-question::after {
-  content: '+';
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-
-.faq-question.active::after {
-  content: '−';
+.faq-question:hover {
+  color: #007bff;
 }
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
   transition: max-height 0.4s ease;
-  color: #333;
-  padding-left: 5px;
 }
 
 .faq-answer.open {
   max-height: 200px;
-  padding-bottom: 15px;
-}
-
-/* Ocultar al inicio */
-.hidden {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
-}
-
-/* Cuando aparece */
-.show-bounce {
-  opacity: 1;
-  transform: translateY(0);
-  animation: bounceIn 1s ease;
-}
-
-.show-fade {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInRight 1s ease;
 }
 
 /* Animaciones */
-@keyframes bounceIn {
-  0% { transform: scale(0.9); opacity: 0; }
-  50% { transform: scale(1.05); opacity: 1; }
-  70% { transform: scale(0.95); }
-  100% { transform: scale(1); }
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-@keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
+.show-bounce {
+  animation: bounceIn 1s forwards;
+}
+
+.show-fade {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-section {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 
@@ -1466,7 +1433,7 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 
-// Intersection Observer para animación al hacer scroll
+// Intersection Observer para animaciones en scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1478,7 +1445,7 @@ const observer = new IntersectionObserver((entries) => {
         entry.target.classList.remove("hidden");
       }
     } else {
-      // Cuando sale de pantalla, se oculta de nuevo
+      // Resetea animaciones al salir
       entry.target.classList.remove("show-bounce", "show-fade");
       entry.target.classList.add("hidden");
     }
@@ -1487,13 +1454,3 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observe(el));
 </script>
-
-
-
-
-
-
-
-
-
-
