@@ -1296,7 +1296,7 @@
 <section class="faq-section">
   <div class="faq-container">
     <!-- Texto a la izquierda -->
-    <div class="faq-left">
+    <div class="faq-left animate-bounce">
       <h2>Preguntas más frecuentes</h2>
       <p>
         A continuación, te presentamos algunas de las preguntas más frecuentes que nuestros clientes suelen hacer al solicitar una cuenta premium.  
@@ -1306,7 +1306,7 @@
     </div>
 
     <!-- Preguntas a la derecha -->
-    <div class="faq-right">
+    <div class="faq-right animate-fade">
       <div class="faq-item">
         <button class="faq-question">¿En qué países están disponibles las cuentas premium?</button>
         <div class="faq-answer">Nuestras cuentas están disponibles en toda Latinoamérica, España y otros países.</div>
@@ -1360,9 +1360,10 @@
 }
 
 .faq-left h2 {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  color: #4a148c;
 }
 
 .faq-left p {
@@ -1370,6 +1371,7 @@
   line-height: 1.6;
 }
 
+/* FAQ Items */
 .faq-right .faq-item {
   border-bottom: 1px solid #ddd;
 }
@@ -1412,6 +1414,27 @@
   max-height: 200px;
   padding-bottom: 15px;
 }
+
+/* ANIMACIONES */
+@keyframes bounceIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-bounce {
+  animation: bounceIn 1s ease;
+}
+
+.animate-fade {
+  animation: fadeInRight 1s ease;
+}
 </style>
 
 <!-- SCRIPT -->
@@ -1431,6 +1454,7 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 </script>
+
 
 
 
