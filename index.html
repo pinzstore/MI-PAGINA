@@ -344,6 +344,167 @@
 
 
 
+<!-- SECCION SOBRE NOSOTROS -->
+<section class="sobre-nosotros" id="sobre-nosotros">
+  <div class="overlay"></div>
+  <div class="contenido">
+    <h2>Un Poco Sobre Nosotros</h2>
+    <p>
+      Somos un equipo comprometido en brindarte la mejor experiencia de streaming posible. 
+      Nuestro objetivo es proporcionarte acceso a una amplia variedad de contenido emocionante y entretenido. 
+      Desde películas y series populares hasta programas exclusivos, tenemos todo lo que necesitas 
+      para disfrutar de momentos inolvidables.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <i class="fas fa-bolt"></i>
+        <h3 class="counter" data-target="24">0</h3>
+        <span>/7 Atención al Cliente</span>
+      </div>
+      <div class="stat">
+        <i class="fas fa-tools"></i>
+        <h3 class="counter" data-target="100">0</h3>
+        <span>% Garantía</span>
+      </div>
+      <div class="stat">
+        <i class="fas fa-layer-group"></i>
+        <h3 class="counter" data-target="30">0</h3>
+        <span>+ Plataformas</span>
+      </div>
+      <div class="stat">
+        <i class="fas fa-users"></i>
+        <h3 class="counter" data-target="700">0</h3>
+        <span>+ Clientes Mensuales</span>
+      </div>
+    </div>
+
+    <a href="#quienes-somos" class="btn">Leer Más</a>
+  </div>
+</section>
+
+<!-- ESTILOS -->
+<style>
+.sobre-nosotros {
+  position: relative;
+  background: url("https://i.ibb.co/0FghLds/logos-streaming.png") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  overflow: hidden;
+}
+.sobre-nosotros .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(70, 0, 130, 0.75); /* violeta oscuro con transparencia */
+  z-index: 1;
+}
+.sobre-nosotros .contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+}
+.sobre-nosotros h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  animation: fadeInDown 1s ease;
+}
+.sobre-nosotros p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.5s ease;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.stat {
+  flex: 1 1 200px;
+  animation: zoomIn 1s ease;
+}
+.stat i {
+  font-size: 40px;
+  color: #ff3b3b;
+  margin-bottom: 10px;
+}
+.stat h3 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+.stat span {
+  display: block;
+  font-size: 16px;
+}
+.btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 25px;
+  background: #ff3b3b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #ff5e5e;
+  transform: scale(1.05);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+@keyframes zoomIn {
+  from {opacity: 0; transform: scale(0.7);}
+  to {opacity: 1; transform: scale(1);}
+}
+</style>
+
+<!-- SCRIPT ANIMACION DE NUMEROS -->
+<script>
+function animateCounters() {
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 200; // velocidad
+
+      if(count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 10);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+}
+
+let animated = false;
+window.addEventListener('scroll', () => {
+  const section = document.querySelector('#sobre-nosotros');
+  const rect = section.getBoundingClientRect();
+  if(rect.top < window.innerHeight && !animated) {
+    animateCounters();
+    animated = true;
+  }
+});
+</script>
+
+
+
 
 <!-- SECCIÓN FAQ -->
 <section class="faq-section">
@@ -1518,6 +1679,7 @@ document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observ
           drop-shadow(0 0 40px rgba(255, 0, 0, 0.5));
 }
 </style>
+
 
 
 
