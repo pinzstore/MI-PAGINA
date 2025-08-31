@@ -282,6 +282,177 @@
 </style>
 
 
+
+
+
+<!-- SECCIÓN FAQ -->
+<section class="faq-section">
+  <!-- Columna izquierda -->
+  <div class="faq-left hidden">
+    <h2>Preguntas más frecuentes</h2>
+    <p>
+      A continuación, te presentamos algunas de las preguntas más frecuentes que nuestros clientes suelen hacer al solicitar una cuenta premium. 
+      No obstante, si tienes alguna otra duda contáctanos directamente vía WhatsApp para obtener más información. 
+      Estaremos encantados de ayudarte en todo lo que necesites.
+    </p>
+  </div>
+
+  <!-- Columna derecha -->
+  <div class="faq-right hidden">
+    <div class="faq-item">
+      <button class="faq-question">¿En qué países están disponibles las cuentas premium?</button>
+      <div class="faq-answer">Actualmente, en todos los países de habla hispana...</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">¿Cuánto tiempo tardan en entregar la cuenta?</button>
+      <div class="faq-answer">El proceso es inmediato, máximo 5 minutos después del pago.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">¿Puedo compartir mi cuenta con otra persona?</button>
+      <div class="faq-answer">Depende del plan adquirido, algunos son personales y otros multiusuario.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTILOS -->
+<style>
+.faq-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 20px;
+  background-color: #111; /* Fondo negro elegante */
+  border-radius: 12px;
+  align-items: start;
+  color: #f5f5f5; /* Texto blanco/gris claro */
+}
+
+.faq-left h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.faq-left p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Preguntas FAQ */
+.faq-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding: 10px 0;
+  color: #f5f5f5;
+  transition: color 0.3s;
+}
+
+.faq-question:hover {
+  color: #ff4444; /* Rojo neon */
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 1rem;
+  color: #aaa;
+  line-height: 1.5;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer.open {
+  max-height: 200px;
+}
+
+/* Animaciones */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.show-bounce {
+  animation: bounceIn 1s forwards;
+}
+
+.show-fade {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-section {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<!-- SCRIPT -->
+<script>
+document.querySelectorAll(".faq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+    let answer = btn.nextElementSibling;
+    if (answer.classList.contains("open")) {
+      answer.classList.remove("open");
+    } else {
+      document.querySelectorAll(".faq-answer").forEach((a) => a.classList.remove("open"));
+      document.querySelectorAll(".faq-question").forEach((q) => q.classList.remove("active"));
+      answer.classList.add("open");
+      btn.classList.add("active");
+    }
+  });
+});
+
+// Intersection Observer para animaciones en scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (entry.target.classList.contains("faq-left")) {
+        entry.target.classList.add("show-bounce");
+        entry.target.classList.remove("hidden");
+      } else {
+        entry.target.classList.add("show-fade");
+        entry.target.classList.remove("hidden");
+      }
+    } else {
+      // Resetea animaciones al salir
+      entry.target.classList.remove("show-bounce", "show-fade");
+      entry.target.classList.add("hidden");
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observe(el));
+</script>
+
+
+
+
 <!-- Seccion Opiniones -->
 <section class="opiniones">
   <h2 class="titulo-opiniones">Opiniones de nuestros clientes</h2>
@@ -1287,172 +1458,3 @@
           drop-shadow(0 0 40px rgba(255, 0, 0, 0.5));
 }
 </style>
-
-
-
-
-
-<!-- SECCIÓN FAQ -->
-<section class="faq-section">
-  <!-- Columna izquierda -->
-  <div class="faq-left hidden">
-    <h2>Preguntas más frecuentes</h2>
-    <p>
-      A continuación, te presentamos algunas de las preguntas más frecuentes que nuestros clientes suelen hacer al solicitar una cuenta premium. 
-      No obstante, si tienes alguna otra duda contáctanos directamente vía WhatsApp para obtener más información. 
-      Estaremos encantados de ayudarte en todo lo que necesites.
-    </p>
-  </div>
-
-  <!-- Columna derecha -->
-  <div class="faq-right hidden">
-    <div class="faq-item">
-      <button class="faq-question">¿En qué países están disponibles las cuentas premium?</button>
-      <div class="faq-answer">Actualmente, en todos los países de habla hispana...</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Cuánto tiempo tardan en entregar la cuenta?</button>
-      <div class="faq-answer">El proceso es inmediato, máximo 5 minutos después del pago.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Puedo compartir mi cuenta con otra persona?</button>
-      <div class="faq-answer">Depende del plan adquirido, algunos son personales y otros multiusuario.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ESTILOS -->
-<style>
-.faq-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 60px 20px;
-  background-color: #111; /* Fondo negro elegante */
-  border-radius: 12px;
-  align-items: start;
-  color: #f5f5f5; /* Texto blanco/gris claro */
-}
-
-.faq-left h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #fff;
-}
-
-.faq-left p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #ccc;
-}
-
-/* Preguntas FAQ */
-.faq-item {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 10px;
-}
-
-.faq-question {
-  background: none;
-  border: none;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-  padding: 10px 0;
-  color: #f5f5f5;
-  transition: color 0.3s;
-}
-
-.faq-question:hover {
-  color: #ff4444; /* Rojo neon */
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  font-size: 1rem;
-  color: #aaa;
-  line-height: 1.5;
-  transition: max-height 0.4s ease;
-}
-
-.faq-answer.open {
-  max-height: 200px;
-}
-
-/* Animaciones */
-.hidden {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.show-bounce {
-  animation: bounceIn 1s forwards;
-}
-
-.show-fade {
-  animation: fadeIn 1s forwards;
-}
-
-@keyframes bounceIn {
-  0% { transform: scale(0.8); opacity: 0; }
-  50% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .faq-section {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-
-<!-- SCRIPT -->
-<script>
-document.querySelectorAll(".faq-question").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
-    let answer = btn.nextElementSibling;
-    if (answer.classList.contains("open")) {
-      answer.classList.remove("open");
-    } else {
-      document.querySelectorAll(".faq-answer").forEach((a) => a.classList.remove("open"));
-      document.querySelectorAll(".faq-question").forEach((q) => q.classList.remove("active"));
-      answer.classList.add("open");
-      btn.classList.add("active");
-    }
-  });
-});
-
-// Intersection Observer para animaciones en scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      if (entry.target.classList.contains("faq-left")) {
-        entry.target.classList.add("show-bounce");
-        entry.target.classList.remove("hidden");
-      } else {
-        entry.target.classList.add("show-fade");
-        entry.target.classList.remove("hidden");
-      }
-    } else {
-      // Resetea animaciones al salir
-      entry.target.classList.remove("show-bounce", "show-fade");
-      entry.target.classList.add("hidden");
-    }
-  });
-}, { threshold: 0.2 });
-
-document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observe(el));
-</script>
