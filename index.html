@@ -1224,17 +1224,17 @@
   <div class="medios-container">
     
     <!-- Nequi -->
-    <div class="medio-card">
+    <div class="medio-logo">
       <img src="https://cdn.prod.website-files.com/6317a229ebf7723658463b4b/663a6b0d43303ddf38035997_logo-nequi.svg" alt="Nequi">
     </div>
 
     <!-- Daviplata -->
-    <div class="medio-card">
+    <div class="medio-logo">
       <img src="https://play-lh.googleusercontent.com/fIwuxVTuoLOzhrKJL6GCGIKuEJc6JFu9Ii97cp0nFWE61qpfeaIhFBiNL5wFcydvhQA=s96-rw" alt="Daviplata">
     </div>
 
     <!-- PayPal -->
-    <div class="medio-card">
+    <div class="medio-logo">
       <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
     </div>
 
@@ -1246,13 +1246,13 @@
 .medios-pago {
   padding: 60px 20px;
   text-align: center;
-  background: #111; /* Fondo oscuro */
+  background: #fff; /* Fondo blanco */
 }
 
 .medios-pago h2 {
   font-size: 2rem;
   margin-bottom: 40px;
-  color: #fff;
+  color: #111;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -1260,30 +1260,21 @@
 .medios-container {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 60px;
   flex-wrap: wrap;
 }
 
-.medio-card {
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(255,0,0,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255,0,0,0.8);
-}
-
-.medio-card:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 0 20px rgba(255,0,0,1);
-}
-
-.medio-card img {
+.medio-logo img {
   max-width: 120px;
-  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.medio-logo img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7))
+          drop-shadow(0 0 20px rgba(255, 0, 0, 0.6))
+          drop-shadow(0 0 40px rgba(255, 0, 0, 0.5));
 }
 </style>
+
+
