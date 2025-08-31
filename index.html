@@ -1472,16 +1472,23 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       if (entry.target.classList.contains("faq-left")) {
         entry.target.classList.add("show-bounce");
+        entry.target.classList.remove("hidden");
       } else {
         entry.target.classList.add("show-fade");
+        entry.target.classList.remove("hidden");
       }
-      observer.unobserve(entry.target);
+    } else {
+      // Cuando sale de pantalla, se oculta de nuevo
+      entry.target.classList.remove("show-bounce", "show-fade");
+      entry.target.classList.add("hidden");
     }
   });
 }, { threshold: 0.2 });
 
 document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observe(el));
 </script>
+
+
 
 
 
