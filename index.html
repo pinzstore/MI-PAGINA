@@ -80,49 +80,72 @@
     background-color: #000;
     color: #fff;
   }
+
   nav {
     display: flex;
     justify-content: space-between;
     background-color: #111;
     padding: 10px 20px;
     align-items: center;
-  }
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
     position: relative;
   }
-  nav a:hover {
-    color: #ff3b3b;
-  }
-  .dropdown {
-    position: relative;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    background-color: #222;
-    min-width: 150px;
-    z-index: 1;
-    border: 1px solid #ff3b3b;
-  }
-  .dropdown-content a {
-    display: block;
-    padding: 10px;
-    color: #fff;
-  }
-  .dropdown-content a:hover {
-    background-color: #333;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+
   .logo {
     font-weight: bold;
     font-size: 18px;
+  }
+
+  .menu {
+    display: flex;
+    gap: 15px;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+    position: relative;
+  }
+
+  nav a:hover {
+    color: #ff3b3b;
+  }
+
+  /* Estilo del botón hamburguesa */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+  }
+
+  /* Modo responsive */
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: #111;
+      border: 1px solid #ff3b3b;
+      padding: 10px;
+      width: 200px;
+    }
+
+    .menu.active {
+      display: flex;
+    }
+
+    .hamburger {
+      display: flex;
+    }
   }
 </style>
 </head>
@@ -130,13 +153,24 @@
 
 <nav>
   <div class="logo">PINZSTORE</div>
-  <div class="menu">
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="menu" id="menu">
     <a href="index.html">Página principal</a>
     <a href="quienes-somos.html">¿Quiénes somos?</a>
-      </div>
-    </div>
   </div>
 </nav>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+  }
+</script>
 
 </body>
 </html>
@@ -1484,6 +1518,7 @@ document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observ
           drop-shadow(0 0 40px rgba(255, 0, 0, 0.5));
 }
 </style>
+
 
 
 
