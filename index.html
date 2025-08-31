@@ -1292,3 +1292,148 @@
 
 
 
+<!-- SECCIÓN PREGUNTAS FRECUENTES -->
+<section class="faq-section">
+  <div class="faq-container">
+    <!-- Texto a la izquierda -->
+    <div class="faq-left">
+      <h2>Preguntas más frecuentes</h2>
+      <p>
+        A continuación, te presentamos algunas de las preguntas más frecuentes que nuestros clientes suelen hacer al solicitar una cuenta premium.  
+        No obstante, si tienes alguna otra duda contáctanos directamente vía WhatsApp para obtener más información.  
+        Estaremos encantados de ayudarte en todo lo que necesites.
+      </p>
+    </div>
+
+    <!-- Preguntas a la derecha -->
+    <div class="faq-right">
+      <div class="faq-item">
+        <button class="faq-question">¿En qué países están disponibles las cuentas premium?</button>
+        <div class="faq-answer">Nuestras cuentas están disponibles en toda Latinoamérica, España y otros países.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo ingreso a mi cuenta?</button>
+        <div class="faq-answer">Te enviaremos los datos de acceso vía correo electrónico o WhatsApp al confirmar tu compra.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo funciona el proceso de compra en tu plataforma?</button>
+        <div class="faq-answer">Eliges tu cuenta, realizas el pago y recibes los accesos en minutos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cuál es la duración de las suscripciones?</button>
+        <div class="faq-answer">Depende del plan que compres, normalmente entre 1 y 12 meses.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo renovar mi suscripción cuando expire?</button>
+        <div class="faq-answer">Sí, puedes renovar fácilmente con nosotros sin perder tus accesos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué métodos de pago aceptas?</button>
+        <div class="faq-answer">Aceptamos Nequi, Daviplata, Paypal y transferencias bancarias.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Ofrecen soporte técnico?</button>
+        <div class="faq-answer">Claro, ofrecemos soporte vía WhatsApp todos los días.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Tienen garantía los servicios?</button>
+        <div class="faq-answer">Sí, todos nuestros servicios cuentan con garantía durante el tiempo contratado.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTILOS -->
+<style>
+.faq-section {
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.faq-left h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.faq-left p {
+  color: #4a356c;
+  line-height: 1.6;
+}
+
+.faq-right .faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 0;
+  width: 100%;
+  text-align: left;
+  color: #4a148c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+  content: '−';
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  color: #333;
+  padding-left: 5px;
+}
+
+.faq-answer.open {
+  max-height: 200px;
+  padding-bottom: 15px;
+}
+</style>
+
+<!-- SCRIPT -->
+<script>
+document.querySelectorAll(".faq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+    let answer = btn.nextElementSibling;
+    if (answer.classList.contains("open")) {
+      answer.classList.remove("open");
+    } else {
+      document.querySelectorAll(".faq-answer").forEach((a) => a.classList.remove("open"));
+      document.querySelectorAll(".faq-question").forEach((q) => q.classList.remove("active"));
+      answer.classList.add("open");
+      btn.classList.add("active");
+    }
+  });
+});
+</script>
+
+
+
+
+
+
