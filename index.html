@@ -343,27 +343,27 @@
 
 
 
-
+<!-- ICONOS DE ESO DE SOPORTE -->
 <section class="stats-section">
   <div class="stats">
     <div class="stat">
       <i class="fas fa-bolt"></i>
-      <h2>24/7</h2>
+      <h2 class="counter" data-target="24">0</h2>
       <p>Atención al Cliente</p>
     </div>
     <div class="stat">
       <i class="fas fa-tools"></i>
-      <h2>100%</h2>
+      <h2 class="counter" data-target="100">0</h2>
       <p>Garantía</p>
     </div>
     <div class="stat">
       <i class="fas fa-layer-group"></i>
-      <h2>+30</h2>
+      <h2 class="counter" data-target="30">0</h2>
       <p>Plataformas</p>
     </div>
     <div class="stat">
       <i class="fas fa-users"></i>
-      <h2>+700</h2>
+      <h2 class="counter" data-target="700">0</h2>
       <p>Clientes Mensuales</p>
     </div>
   </div>
@@ -371,11 +371,26 @@
 
 <style>
 .stats-section {
-  background: rgba(79, 41, 166, 0.9); /* fondo morado */
-  padding: 60px 20px;
+  background: rgba(79, 41, 166, 0.95); /* fondo morado */
+  padding: 80px 20px;
   text-align: center;
   color: white;
   position: relative;
+  overflow: hidden;
+}
+
+/* Fondo con logos desenfocados */
+.stats-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.ibb.co/6YDvZfK/logos-fondo.png') repeat center center;
+  opacity: 0.2;
+  filter: blur(4px);
+  z-index: 0;
 }
 
 .stats {
@@ -385,27 +400,35 @@
   max-width: 1200px;
   margin: auto;
   gap: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .stat {
   flex: 1;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.stat:hover {
+  transform: scale(1.1);
 }
 
 .stat i {
   font-size: 40px;
   margin-bottom: 15px;
   color: white;
+  animation: bounce 2s infinite;
 }
 
 .stat h2 {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: bold;
   margin: 10px 0;
 }
 
 .stat p {
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
 }
 
@@ -425,10 +448,54 @@
     flex: 1 1 100%;
   }
 }
+
+/* Animación del ícono */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
 </style>
 
-<!-- Font Awesome para los iconos -->
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<!-- Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
+<!-- Script contador animado -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  const speed = 100; // menor = más rápido
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / speed);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 40);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  };
+
+  // Animar solo cuando aparece en pantalla
+  const section = document.querySelector(".stats-section");
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      observer.disconnect();
+    }
+  }, { threshold: 0.5 });
+
+  observer.observe(section);
+});
+</script>
 
 
 
@@ -1606,6 +1673,7 @@ document.querySelectorAll(".faq-left, .faq-right").forEach(el => observer.observ
           drop-shadow(0 0 40px rgba(255, 0, 0, 0.5));
 }
 </style>
+
 
 
 
