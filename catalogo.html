@@ -113,3 +113,103 @@ body {
   color: #000;
 }
 </style>
+
+
+
+
+<!-- SECCIÓN BENEFICIOS -->
+<section class="beneficios" id="beneficios">
+  <div class="beneficios-grid">
+
+    <!-- Soporte -->
+    <div class="beneficio">
+      <div class="icono">
+        <i class="fas fa-headset"></i>
+      </div>
+      <h3>Soporte Garantizado</h3>
+      <p>¿Necesitas ayuda? Nuestro equipo está disponible para resolver cualquier duda o error en nuestros productos vendidos.</p>
+    </div>
+
+    <!-- Compras -->
+    <div class="beneficio">
+      <div class="icono">
+        <i class="fas fa-credit-card"></i>
+      </div>
+      <h3>Compras Seguras</h3>
+      <p>Recargar tu saldo es simple: transfiere, envía el comprobante y tu cuenta se activa al instante, rápido y fácil.</p>
+    </div>
+
+    <!-- Precios -->
+    <div class="beneficio">
+      <div class="icono">
+        <i class="fas fa-gem"></i>
+      </div>
+      <h3>Precios Bajos</h3>
+      <p>¿Quieres emprender? Con nuestros precios de distribuidor puedes obtener mayor rentabilidad en tus ventas.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ESTILOS -->
+<style>
+.beneficios {
+  background: #111; /* fondo oscuro */
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.beneficio {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+}
+
+.icono {
+  background: #222;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icono i {
+  font-size: 32px;
+  color: #f1c40f; /* dorado */
+}
+
+.beneficio h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.beneficio p {
+  font-size: 0.95rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+</style>
+
+<!-- FontAwesome para íconos -->
+<script src="https://kit.fontawesome.com/6dc75426b5.js" crossorigin="anonymous"></script>
