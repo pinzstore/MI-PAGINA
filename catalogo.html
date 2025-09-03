@@ -2,35 +2,34 @@
 <section class="catalogo" id="catalogo">
   <div class="catalogo-header">
     <h2>Explora Nuestro Catálogo</h2>
-    <p>Elige el plan de streaming que más se ajuste a ti. Calidad, confianza y soporte siempre garantizados.</p>
+    <p>Elige el plan de streaming que más se ajuste a ti.</p>
   </div>
 
   <div class="catalogo-grid">
-    <!-- Tarjeta 1 -->
+    <!-- Tarjeta Netflix -->
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
-      <h3>Netflix Premium</h3>
-      <p>Disfruta series y películas en Ultra HD en hasta 4 dispositivos.</p>
-      <span class="precio">$49.000 COP</span>
-      <a href="https://wa.me/573000000000?text=Hola%20quiero%20comprar%20Netflix%20Premium" class="btn">Comprar</a>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="logo">
+      <div class="options">
+        <div class="option">Pantalla</div>
+        <div class="option">Completa</div>
+      </div>
     </div>
 
-    <!-- Tarjeta 2 -->
+    <!-- Tarjeta Disney+ -->
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney Plus">
-      <h3>Disney+</h3>
-      <p>Todo el contenido de Disney, Marvel, Pixar, Star Wars y más.</p>
-      <span class="precio">$24.000 COP</span>
-      <a href="https://wa.me/573000000000?text=Hola%20quiero%20comprar%20Disney+" class="btn">Comprar</a>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" class="logo">
+      <div class="options">
+        <div class="option">Completa</div>
+      </div>
     </div>
 
-    <!-- Tarjeta 3 -->
+    <!-- Tarjeta HBO -->
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="HBO Max">
-      <h3>HBO Max</h3>
-      <p>Series originales, estrenos de cine y clásicos en un solo lugar.</p>
-      <span class="precio">$22.000 COP</span>
-      <a href="https://wa.me/573000000000?text=Hola%20quiero%20comprar%20HBO%20Max" class="btn">Comprar</a>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="HBO Max" class="logo">
+      <div class="options">
+        <div class="option">Pantalla</div>
+        <div class="option">Completa</div>
+      </div>
     </div>
   </div>
 </section>
@@ -54,51 +53,39 @@
 }
 .catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 .card {
   background: #111;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .card:hover {
   transform: translateY(-10px);
 }
-.card img {
-  max-width: 120px;
-  margin-bottom: 20px;
+.logo {
+  max-width: 150px;
+  margin-bottom: 25px;
 }
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+.options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-.card p {
-  font-size: 0.95rem;
-  color: #bbb;
-  margin-bottom: 15px;
-}
-.precio {
+.option {
+  background: #222;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
   font-weight: bold;
   color: #f1c40f;
-  font-size: 1.2rem;
-  display: block;
-  margin-bottom: 15px;
-}
-.btn {
-  display: inline-block;
-  background: #f1c40f;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-.btn:hover {
-  background: #fff200;
+  box-shadow: inset 0 0 8px rgba(255,255,255,0.1);
 }
 </style>
-
