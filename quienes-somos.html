@@ -146,12 +146,12 @@
 <section class="quienes-somos" id="quienes-somos">
   <div class="qs-container">
     <!-- Columna izquierda: logo -->
-    <div class="qs-logo">
+    <div class="qs-logo animate-left">
       <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="PinzStore Logo">
     </div>
 
     <!-- Columna derecha: texto -->
-    <div class="qs-texto">
+    <div class="qs-texto animate-right">
       <p><strong>En PinzStore creemos que el entretenimiento no debe ser un lujo...</strong></p>
       <p>
         Desde hace más de un año trabajamos desde <strong>Cali, Colombia</strong>, para que cada persona 
@@ -200,6 +200,7 @@
   font-family: Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.8;
+  text-align: justify;
 }
 
 .qs-texto strong {
@@ -210,14 +211,54 @@
   margin-bottom: 20px;
 }
 
+/* Animaciones */
+.animate-left, .animate-right {
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 1s ease;
+}
+
+.animate-left {
+  transform: translateX(-80px);
+}
+
+.animate-right {
+  transform: translateX(80px);
+}
+
+.animate-left.visible, .animate-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* Responsivo */
 @media (max-width: 900px) {
   .qs-container {
     flex-direction: column;
     text-align: center;
   }
+  .qs-texto {
+    text-align: justify;
+  }
   .qs-logo img {
     margin-bottom: 20px;
   }
 }
 </style>
+
+<script>
+// Intersection Observer para animaciones
+const animElements = document.querySelectorAll('.animate-left, .animate-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible'); // Se reinicia al salir
+    }
+  });
+}, { threshold: 0.2 });
+
+animElements.forEach(el => observer.observe(el));
+</script>
+
