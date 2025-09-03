@@ -7,8 +7,7 @@
 
   <div class="catalogo-grid">
     <!-- Tarjeta Netflix -->
-    <div class="card">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756868806/Imagen_de_WhatsApp_2025-09-02_a_las_22.06.32_1431de16_fz9ip7.jpg" alt="Netflix" class="logo">
+    <div class="card" style="background-image: url('https://res.cloudinary.com/dfkola0ej/image/upload/v1756868806/Imagen_de_WhatsApp_2025-09-02_a_las_22.06.32_1431de16_fz9ip7.jpg');">
       <div class="options">
         <div class="option">Pantalla</div>
         <div class="option">Completa</div>
@@ -16,16 +15,14 @@
     </div>
 
     <!-- Tarjeta Disney+ -->
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" class="logo">
+    <div class="card" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg');">
       <div class="options single">
         <div class="option">Completa</div>
       </div>
     </div>
 
     <!-- Tarjeta HBO -->
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="HBO Max" class="logo">
+    <div class="card" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg');">
       <div class="options">
         <div class="option">Pantalla</div>
         <div class="option">Completa</div>
@@ -35,22 +32,19 @@
 </section>
 
 <style>
-/* Fondo oscuro para toda la sección */
 .catalogo {
-  background: #000; /* Negro total */
-  color: #fff;
+  background: #000; /* fondo oscuro */
   padding: 50px 20px;
+  color: #fff;
   text-align: center;
 }
 
 .catalogo-header h2 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #f1c40f; /* Dorado */
 }
 
 .catalogo-header p {
-  font-size: 1rem;
   color: #ccc;
   margin-bottom: 40px;
 }
@@ -63,27 +57,15 @@
 }
 
 .card {
-  background: #111;
+  position: relative;
+  height: 380px;
   border-radius: 15px;
-  padding: 20px 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-  transition: transform 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 300px; 
-  margin: 0 auto;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.logo {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  align-items: flex-end;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 .options {
@@ -91,10 +73,8 @@
   justify-content: center;
   gap: 10px;
   width: 100%;
-}
-
-.options.single {
-  justify-content: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6); /* capa oscura para resaltar botones */
 }
 
 .option {
@@ -105,13 +85,13 @@
   text-align: center;
   font-weight: bold;
   color: #000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   font-size: 0.95rem;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .option:hover {
   background: #f1c40f;
   color: #111;
+  cursor: pointer;
 }
 </style>
