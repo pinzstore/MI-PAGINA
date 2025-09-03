@@ -142,73 +142,82 @@
 
 
 
-<!-- SECCIÓN ¿QUIÉNES SOMOS? -->
+<!-- SECCIÓN QUIÉNES SOMOS -->
 <section class="quienes-somos" id="quienes-somos">
-  <div class="contenido">
-    <h2>¿Quiénes somos?</h2>
-    <p>
-      En <strong>PinzStore</strong> creemos que el entretenimiento no debe ser un lujo. Desde hace más de un año trabajamos desde Cali, Colombia, para que cada persona pueda disfrutar de sus series, películas y música favoritas de manera rápida, segura y accesible. Nuestras cuentas están disponibles en todo el territorio colombiano, y las cuentas internacionales funcionan en cualquier lugar del mundo, garantizando así un servicio confiable sin importar dónde te encuentres.
-    </p>
-    <p>
-      No solo ofrecemos cuentas de streaming, ofrecemos momentos únicos para compartir con familia, amigos o pareja, porque sabemos que detrás de cada pantalla siempre hay historias que merecen vivirse.<br>
-      En PinzStore no solo entregamos un servicio, construimos confianza y hacemos que cada instante de entretenimiento valga la pena.
-    </p>
+  <div class="qs-container">
+    <!-- Columna izquierda: logo -->
+    <div class="qs-logo">
+      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756930000/pinzstore-logo.png" alt="PinzStore Logo">
+    </div>
 
-    <h3>Fundador</h3>
-    <p>
-      Soy Alejandro, fundador de PinzStore y propietario de PinzStyle, un negocio de barbería que también nació de mis ganas de emprender. Creo firmemente que los sueños se construyen con disciplina, fe y constancia.
-    </p>
-    <p>
-      Lo que empezó como una idea pequeña en mi hogar, hoy es una comunidad que crece cada día gracias a la confianza de personas como tú. Mi mayor motivación es demostrar que en Colombia sí se puede salir adelante, crear empresa y dejar huella en nuestras comunidades.<br>
-      PinzStore no es solo una tienda digital, es el reflejo de que los sueños sí se cumplen.
-    </p>
-
-    <h3>Misión</h3>
-    <p>
-      En PinzStore trabajamos con un propósito claro: que todas las personas tengan acceso fácil y seguro al entretenimiento digital. Nuestra misión es ofrecer cuentas de streaming a precios bajos, con calidad y respaldo, para que cada cliente disfrute de sus series, películas y música favoritas de manera sencilla y sin complicaciones.
-    </p>
-    <p>
-      Cada servicio que brindamos está acompañado de atención personalizada, soporte constante y total transparencia, porque creemos que la confianza es la base de todo lo que hacemos.<br>
-      En PinzStore queremos ser la opción número uno para quienes buscan entretenimiento accesible, confiable y sin límites, transformando cada cuenta en una experiencia que realmente valga la pena.
-    </p>
-
-    <h3>Visión</h3>
-    <p>
-      Queremos consolidarnos como la tienda digital líder en cuentas de streaming en Colombia, reconocida por nuestra confiabilidad, precios accesibles y calidad en el servicio.
-    </p>
-    <p>
-      Nuestro objetivo es ampliar nuestra comunidad de clientes satisfechos, fortaleciendo la confianza en cada entrega y sumando nuevos servicios que nos permitan seguir innovando en la forma en que las personas acceden al entretenimiento digital.<br>
-      Soñamos con que PinzStore sea el referente de seguridad, rapidez y accesibilidad, convirtiéndonos en la primera opción para quienes buscan disfrutar del mejor contenido sin complicaciones.
-    </p>
+    <!-- Columna derecha: texto -->
+    <div class="qs-texto">
+      <p><strong>En PinzStore creemos que el entretenimiento no debe ser un lujo...</strong></p>
+      <p>
+        Desde hace más de un año trabajamos desde <strong>Cali, Colombia</strong>, para que cada persona 
+        pueda disfrutar de sus series, películas y música favoritas de manera rápida, segura y accesible. 
+        Nuestras cuentas están disponibles en todo el territorio colombiano, y las cuentas internacionales 
+        funcionan en cualquier lugar del mundo, garantizando así un <strong>servicio confiable</strong> sin importar 
+        dónde te encuentres.
+      </p>
+      <p>
+        No solo ofrecemos cuentas de streaming, <strong>ofrecemos momentos únicos para compartir con familia, amigos o pareja</strong>, 
+        porque sabemos que detrás de cada pantalla siempre <strong>hay historias que merecen vivirse.</strong>
+      </p>
+      <p>
+        En <strong>PinzStore</strong> no solo entregamos un servicio, <strong>construimos confianza y hacemos que cada instante 
+        de entretenimiento valga la pena.</strong>
+      </p>
+    </div>
   </div>
 </section>
 
 <style>
 .quienes-somos {
-  background: #fff;
-  color: #222;
+  background: #000;
+  color: #fff;
   padding: 60px 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qs-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+  align-items: center;
+}
+
+.qs-logo img {
+  max-width: 280px;
+  width: 100%;
+}
+
+.qs-texto {
+  flex: 1;
   font-family: Arial, sans-serif;
-}
-.quienes-somos h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.quienes-somos h3 {
-  margin-top: 40px;
-  font-size: 1.4rem;
-  color: #000;
-}
-.quienes-somos p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.8;
+}
+
+.qs-texto strong {
+  font-weight: 700;
+}
+
+.qs-texto p {
   margin-bottom: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .qs-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .qs-logo img {
+    margin-bottom: 20px;
+  }
 }
 </style>
-
-
-
-
