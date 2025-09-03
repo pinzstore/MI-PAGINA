@@ -262,3 +262,98 @@ const observer = new IntersectionObserver((entries) => {
 animElements.forEach(el => observer.observe(el));
 </script>
 
+
+
+<!-- SECCIÓN FUNDADOR -->
+<section class="fundador" id="fundador">
+  <div class="separador"></div>
+  
+  <div class="fundador-container">
+    <!-- Imagen -->
+    <div class="fundador-img">
+      <img src="https://tu-imagen-aqui.jpg" alt="Fundador de PinzStore">
+    </div>
+
+    <!-- Texto -->
+    <div class="fundador-texto">
+      <h2>Fundador</h2>
+      <p>
+        Soy <strong>Alejandro</strong>, fundador de <strong>PinzStore</strong> y propietario de <strong>PinzStyle</strong>, 
+        un negocio de barbería que también nació de mis ganas de emprender.  
+        Creo firmemente que <strong>los sueños se construyen con disciplina, fe y constancia.</strong>
+      </p>
+      <p>
+        Lo que empezó como una idea pequeña en mi hogar, hoy es una comunidad que crece cada día 
+        <strong>gracias a la confianza de personas como tú.</strong>  
+        Mi mayor motivación es demostrar que en Colombia <strong>sí se puede salir adelante, crear empresa y dejar huella en nuestras comunidades.</strong>
+      </p>
+      <p>
+        PinzStore no es solo una tienda digital, <strong>es el reflejo de que los sueños sí se cumplen.</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="separador"></div>
+</section>
+
+<style>
+.fundador {
+  background: #eae9e6; /* Fondo gris claro */
+  padding: 50px 20px;
+}
+
+.separador {
+  border-top: 2px solid #ccc;
+  margin: 15px auto;
+  max-width: 90%;
+}
+
+.fundador-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.fundador-img img {
+  max-width: 350px;
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+}
+
+.fundador-texto {
+  flex: 1;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #111;
+  text-align: justify;
+}
+
+.fundador-texto h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.fundador-texto strong {
+  font-weight: 700;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .fundador-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .fundador-texto {
+    text-align: justify;
+  }
+}
+</style>
+
