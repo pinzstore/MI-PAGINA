@@ -35,6 +35,26 @@
 </section>
 
 <style>
+/* Fondo oscuro para toda la sección */
+.catalogo {
+  background: #000; /* Negro total */
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.catalogo-header h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #f1c40f; /* Dorado */
+}
+
+.catalogo-header p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
 .catalogo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -43,7 +63,7 @@
 }
 
 .card {
-  background: #111; /* Fondo negro elegante */
+  background: #111;
   border-radius: 15px;
   padding: 20px 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
@@ -79,19 +99,19 @@
 
 .option {
   flex: 1;
-  background: #fff; /* Blanco */
+  background: #fff;
   border-radius: 10px;
   padding: 10px;
   text-align: center;
   font-weight: bold;
-  color: #000; /* Texto negro */
+  color: #000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   font-size: 0.95rem;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .option:hover {
-  background: #f1c40f; /* Amarillo dorado al pasar mouse */
-  color: #111; /* Texto oscuro para contraste */
+  background: #f1c40f;
+  color: #111;
 }
 </style>
