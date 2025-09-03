@@ -14,7 +14,7 @@
 
     .catalogo {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* flexible */
+      grid-template-columns: repeat(4, 1fr); /* máximo 4 por fila */
       gap: 20px;
     }
 
@@ -24,6 +24,12 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       padding: 20px;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    /* Efecto levitar tarjeta */
+    .tarjeta:hover {
+      transform: translateY(-8px);
     }
 
     .tarjeta img {
@@ -54,11 +60,23 @@
       background: #000000;
       color: #ffffff;
     }
+
+    /* Responsivo */
+    @media (max-width: 1024px) {
+      .catalogo {
+        grid-template-columns: repeat(2, 1fr); /* 2 por fila en tablets */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .catalogo {
+        grid-template-columns: 1fr; /* 1 por fila en móviles */
+      }
+    }
   </style>
 </head>
 <body>
   <section class="catalogo">
-    <!-- Primer bloque de tarjetas -->
     <div class="tarjeta">
       <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756868806/Imagen_de_WhatsApp_2025-09-02_a_las_22.06.32_1431de16_fz9ip7.jpg" alt="Producto 1">
       <button>Ver más</button>
@@ -75,8 +93,6 @@
       <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932470/PARAMOUNT_TARJETA_2_b88v1i.jpg" alt="Producto 4">
       <button>Ver más</button>
     </div>
-
-    <!-- Segundo bloque de tarjetas -->
     <div class="tarjeta">
       <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932986/DIRECTVGO_TARJETA_dmmw0q.jpg" alt="Producto 5">
       <button>Ver más</button>
