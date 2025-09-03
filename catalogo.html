@@ -24,15 +24,21 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       padding: 20px;
       text-align: center;
-      min-height: 350px; /* más alta para acompañar la imagen */
+      min-height: 350px;
     }
 
     .tarjeta img {
-      width: 80%;          /* menos ancho que toda la tarjeta */
-      height: 350px;       /* un poco más alta */
-      object-fit: cover;   /* recorte bonito sin deformar */
+      width: 80%;
+      height: 350px;
+      object-fit: cover;
       border-radius: 8px;
       margin-bottom: 20px;
+      transition: transform 0.4s ease; /* transición suave */
+    }
+
+    /* Efecto zoom al pasar el mouse */
+    .tarjeta img:hover {
+      transform: scale(1.08); /* 8% de zoom */
     }
 
     .tarjeta button {
