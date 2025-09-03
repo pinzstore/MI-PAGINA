@@ -357,3 +357,77 @@ animElements.forEach(el => observer.observe(el));
 }
 </style>
 
+
+
+<!-- SECCIÓN MISIÓN Y VISIÓN -->
+<section class="mision-vision" id="mision-vision">
+  <div class="mv-container">
+    
+    <!-- Misión -->
+    <div class="mv-item">
+      <h2>Misión</h2>
+      <p>
+        En <strong>PinzStore</strong> trabajamos para que cada persona pueda acceder a entretenimiento de calidad 
+        a precios justos, ofreciendo cuentas de streaming confiables y seguras.  
+        Nuestro compromiso es <strong>hacer accesible lo que parece un lujo</strong>, convirtiendo cada momento frente a la pantalla 
+        en una experiencia inolvidable.
+      </p>
+    </div>
+
+    <!-- Visión -->
+    <div class="mv-item">
+      <h2>Visión</h2>
+      <p>
+        Queremos ser reconocidos en Colombia y en el mundo como <strong>la tienda digital de confianza</strong> 
+        que acerca el entretenimiento a miles de familias.  
+        Nuestra visión es <strong>seguir creciendo como comunidad</strong>, brindando servicios innovadores y demostrando 
+        que desde nuestro país se pueden crear proyectos que dejan huella positiva en la sociedad.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.mision-vision {
+  background: #fff; /* Fondo blanco */
+  padding: 60px 20px;
+}
+
+.mv-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mv-item {
+  background: #f9f9f9; /* Ligero contraste */
+  padding: 30px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  color: #111;
+  line-height: 1.8;
+  text-align: justify;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+}
+
+.mv-item h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.mv-item strong {
+  font-weight: 700;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .mv-container {
+    grid-template-columns: 1fr; /* Apilar en móviles */
+  }
+}
+</style>
