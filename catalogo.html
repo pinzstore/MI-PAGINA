@@ -1,29 +1,133 @@
-<section class="cta">
-  <h2>¿Ya sabes qué cuenta comprar?</h2>
-  <p>Elige tu plataforma favorita y disfruta contenido premium al mejor precio.</p>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sección Streaming</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #1d0d47, #fff);
+      color: #fff;
+    }
 
-<style>
-  .cta {
-    text-align: center;
-    padding: 60px 20px;
-    background: #000; /* Fondo oscuro */
-    color: #fff;      /* Texto blanco */
-  }
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #2a1363, #1a093d);
+      overflow: hidden;
+    }
 
-  .cta h2 {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
+    .hero h1 {
+      font-size: 2.2rem;
+      line-height: 1.4;
+      font-weight: 700;
+    }
 
-  .cta p {
-    font-size: 1.2rem;
-    color: #ddd; /* Un gris suave para diferenciar del título */
-    max-width: 700px;
-    margin: 0 auto;
-  }
-</style>
+    .hero h1 span {
+      color: #6c63ff;
+    }
+
+    .hero p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      background: #6c63ff;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero .btn:hover {
+      background: #5848d9;
+    }
+
+    .tv-container {
+      position: relative;
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tv-container img.tv {
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    .cards {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      z-index: 1;
+    }
+
+    .cards img {
+      width: 140px;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .cards img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .cards img {
+        width: 90px;
+      }
+
+      .tv-container img.tv {
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <section class="hero">
+    <h1>
+      Activa Streaming Online:<br>
+      Netflix, Spotify, Amazon Prime, Disney y más...<br>
+      <span>sin tarjeta de crédito, más barato</span><br>
+      y en un solo lugar.
+    </h1>
+    <a href="#" class="btn">Contrata Ahora!</a>
+
+    <div class="tv-container">
+      <img src="tv.png" alt="TV" class="tv"> <!-- Usa tu imagen de TV -->
+      <div class="cards">
+        <img src="movie1.jpg" alt="">
+        <img src="movie2.jpg" alt="">
+        <img src="movie3.jpg" alt="">
+        <img src="movie4.jpg" alt="">
+        <img src="movie5.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
 
 
 
