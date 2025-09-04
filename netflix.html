@@ -1,50 +1,31 @@
-<section class="netflix-section">
-  <!-- Partículas -->
-  <div class="particles">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-
-  <!-- Hero -->
-  <div class="hero">
-    <h2>Netflix con <span>Pinzstore</span></h2>
-    <p>
-      Con Pinzstore tienes acceso ilimitado a lo mejor de Netflix. Series, películas, documentales y estrenos 2025 en la mejor calidad.  
-      <br><br>
-      Conéctate desde cualquier dispositivo y disfruta junto a tu familia. ¡Dile adiós a las limitaciones y vive la experiencia completa!
-    </p>
-  </div>
-
-  <!-- Beneficios -->
-  <div class="benefits">
-    <div class="benefit-card">✔ Películas y series en Full HD</div>
-    <div class="benefit-card">✔ Multi-dispositivo y multi-pantalla</div>
-    <div class="benefit-card">✔ Estrenos actualizados 2025</div>
-    <div class="benefit-card">✔ Sin cortes ni publicidad</div>
-  </div>
-
-  <!-- Sección planes con logo a la izquierda -->
-  <div class="plans-section">
-    <!-- Logo + texto -->
-    <div class="plans-logo">
-      <img src="logo.png" alt="Logo Pinzstore" />
+<section class="netflix-planes">
+  <div class="planes-container">
+    
+    <!-- Texto a la izquierda -->
+    <div class="planes-info">
+      <img src="tu-logo.png" alt="Logotipo de Pinzstore" class="logo">
+      <h2>Elige el plan que más se ajuste a ti</h2>
       <p>
-        Elige el plan que más se ajuste a ti. Con nuestra cobertura, tendrás acceso a Netflix como si fuera tu cuenta personal, pero con precios mucho más bajos.  
-        <br><br>
+        Con nuestra cobertura, tendrás acceso a Netflix como si fuera tu cuenta personal, 
+        pero con precios mucho más bajos.
+      </p>
+      <p class="extra">
         ¡Haz parte de los cientos de clientes que ya disfrutan de Netflix con Pinzstore!
       </p>
     </div>
 
-    <!-- Planes -->
-    <div class="plans">
+    <!-- Planes a la derecha -->
+    <div class="planes-grid">
       <div class="plan-card">
+        <img src="tu-logo.png" alt="Pinzstore" class="plan-logo">
         <h3>Plan Pantalla</h3>
         <p>1 pantalla • Full HD</p>
         <h4>$4.99 USD</h4>
         <button>Comprar</button>
       </div>
 
-      <div class="plan-card">
+      <div class="plan-card destacado">
+        <img src="tu-logo.png" alt="Pinzstore" class="plan-logo">
         <h3>Plan Completo</h3>
         <p>4 pantallas • Ultra HD</p>
         <h4>$8.99 USD</h4>
@@ -55,136 +36,57 @@
 </section>
 
 <style>
-/* --- Fondo general estilo Netflix --- */
-.netflix-section {
+.netflix-planes {
   background: linear-gradient(to bottom, #000000, #141414);
   color: white;
-  text-align: center;
   padding: 80px 20px;
-  position: relative;
-  overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
-/* --- Partículas --- */
-.particles {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.particles span {
-  position: absolute;
-  display: block;
-  width: 6px; height: 6px;
-  background: #e50914;
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: move 10s linear infinite;
-}
-
-.particles span:nth-child(1) { top: 10%; left: 20%; animation-duration: 8s; }
-.particles span:nth-child(2) { top: 40%; left: 70%; animation-duration: 12s; }
-.particles span:nth-child(3) { top: 80%; left: 50%; animation-duration: 9s; }
-.particles span:nth-child(4) { top: 30%; left: 90%; animation-duration: 14s; }
-.particles span:nth-child(5) { top: 60%; left: 10%; animation-duration: 11s; }
-.particles span:nth-child(6) { top: 20%; left: 80%; animation-duration: 7s; }
-.particles span:nth-child(7) { top: 50%; left: 30%; animation-duration: 13s; }
-.particles span:nth-child(8) { top: 70%; left: 60%; animation-duration: 10s; }
-.particles span:nth-child(9) { top: 85%; left: 85%; animation-duration: 15s; }
-.particles span:nth-child(10){ top: 15%; left: 40%; animation-duration: 12s; }
-
-@keyframes move {
-  0% { transform: translateY(0) scale(1); opacity: 0.7; }
-  50% { transform: translateY(-40px) scale(1.2); opacity: 1; }
-  100% { transform: translateY(0) scale(1); opacity: 0.7; }
-}
-
-/* --- Hero --- */
-.hero {
-  position: relative;
-  z-index: 1;
-}
-
-.hero h2 {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 20px;
-  animation: fadeInDown 1s ease;
-}
-
-.hero h2 span {
-  color: #e50914; /* Rojo Netflix */
-}
-
-.hero p {
-  font-size: 18px;
-  color: #cccccc;
-  max-width: 800px;
-  margin: 0 auto 50px;
-  animation: fadeInUp 1.2s ease;
-}
-
-/* --- Beneficios --- */
-.benefits {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-bottom: 60px;
-  position: relative;
-  z-index: 1;
-}
-
-.benefit-card {
-  background: rgba(40, 40, 40, 0.9);
-  padding: 20px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  border: 1px solid #2a2a2a;
-  transition: transform 0.3s ease;
-}
-
-.benefit-card:hover {
-  transform: scale(1.05);
-  background: rgba(229, 9, 20, 0.8);
-}
-
-/* --- Planes con logo a la izquierda --- */
-.plans-section {
+.planes-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  text-align: left;
-  position: relative;
-  z-index: 1;
-  margin-top: 40px;
+  gap: 40px;
 }
 
-.plans-logo {
-  max-width: 320px;
+/* --- Info izquierda --- */
+.planes-info {
   flex: 1;
+  min-width: 300px;
+  max-width: 400px;
 }
 
-.plans-logo img {
-  width: 140px;
+.planes-info .logo {
+  width: 160px;
   margin-bottom: 20px;
 }
 
-.plans-logo p {
-  font-size: 15px;
-  color: #ccc;
-  line-height: 1.6;
+.planes-info h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
-.plans {
+.planes-info p {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.planes-info .extra {
+  font-weight: bold;
+  color: #e50914;
+}
+
+/* --- Planes derecha --- */
+.planes-grid {
   display: flex;
   gap: 30px;
-  flex: 2;
+  flex: 1;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .plan-card {
@@ -193,12 +95,18 @@
   padding: 40px 30px;
   border-radius: 16px;
   width: 260px;
+  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .plan-card:hover {
   transform: scale(1.05);
   box-shadow: 0px 8px 20px rgba(229, 9, 20, 0.5);
+}
+
+.plan-logo {
+  width: 60px;
+  margin-bottom: 10px;
 }
 
 .plan-card h3 {
@@ -235,14 +143,9 @@
   background: #b00610;
 }
 
-/* --- Animaciones --- */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+/* --- Destacado --- */
+.plan-card.destacado {
+  border: 2px solid #e50914;
+  background: linear-gradient(180deg, #2a2a2a, #141414);
 }
 </style>
