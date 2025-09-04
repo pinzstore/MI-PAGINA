@@ -3,25 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activaciones</title>
+  <title>Activaciones & Catálogo</title>
   <style>
+    /* ===== RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: "Arial", sans-serif;
-      background: #1b0d3f;
       color: #fff;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #1b0d3f, #2c0a4d, #000000);
     }
 
-    section {
+    /* ===== CANVAS DE PARTÍCULAS ===== */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* ===== SECCIÓN ACTIVACIONES ===== */
+    section.activaciones {
       padding: 60px 20px;
       text-align: center;
       position: relative;
-      background: linear-gradient(180deg, rgba(107,34,176,0.95), rgba(44,12,85,0.95)),
-                  url("fondo.jpg") no-repeat center center/cover;
-      /* 👆 Cambia "fondo.jpg" por tu imagen morada */
     }
 
-    section h2 {
+    section.activaciones h2 {
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 40px;
@@ -128,17 +141,79 @@
       color: #fbc531;
     }
 
-    @media (max-width: 900px) {
-      .pricing-container {
-        flex-direction: column;
-        align-items: center;
+    /* ===== SECCIÓN CATÁLOGO ===== */
+    section.catalogo {
+      padding: 60px 20px;
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .tarjeta {
+      background: #1f1f1f;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-8px);
+    }
+
+    .tarjeta img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    .tarjeta img:hover {
+      transform: scale(1.08);
+    }
+
+    .tarjeta button {
+      background: #6c63ff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      color: #fff;
+    }
+
+    .tarjeta button:hover {
+      background: #5145d9;
+    }
+
+    /* Responsivo */
+    @media (max-width: 1024px) {
+      .catalogo {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .catalogo {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  
-  <section>
+
+  <!-- Partículas de fondo -->
+  <div id="particles-js"></div>
+
+  <!-- Sección Activaciones -->
+  <section class="activaciones">
     <h2>¿Qué tipo de activación te puede convenir más?</h2>
     <div class="pricing-container">
       
@@ -224,125 +299,59 @@
     </div>
   </section>
 
-</body>
-</html>
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 40px;
-      background: #f5f5f5;
-    }
-
-    .catalogo {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* máximo 4 por fila */
-      gap: 20px;
-    }
-
-    .tarjeta {
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    /* Efecto levitar tarjeta */
-    .tarjeta:hover {
-      transform: translateY(-8px);
-    }
-
-    .tarjeta img {
-      width: 80%;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      transition: transform 0.4s ease;
-    }
-
-    /* Efecto zoom al pasar el mouse */
-    .tarjeta img:hover {
-      transform: scale(1.08);
-    }
-
-    .tarjeta button {
-      background: #ffffff;
-      border: 1px solid #000000;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-
-    .tarjeta button:hover {
-      background: #000000;
-      color: #ffffff;
-    }
-
-    /* Responsivo */
-    @media (max-width: 1024px) {
-      .catalogo {
-        grid-template-columns: repeat(2, 1fr); /* 2 por fila en tablets */
-      }
-    }
-
-    @media (max-width: 600px) {
-      .catalogo {
-        grid-template-columns: 1fr; /* 1 por fila en móviles */
-      }
-    }
-  </style>
-</head>
-<body>
+  <!-- Sección Catálogo -->
   <section class="catalogo">
-    <div class="tarjeta">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756868806/Imagen_de_WhatsApp_2025-09-02_a_las_22.06.32_1431de16_fz9ip7.jpg" alt="Producto 1">
-      <button>Ver más</button>
-    </div>
-    <div class="tarjeta">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932167/PRIMEVIDEO_TARJETA_oisibm.jpg" alt="Producto 2">
-      <button>Ver más</button>
-    </div>
-    <div class="tarjeta">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932625/HBOMAX_TARJETA_kklpcs.jpg" alt="Producto 3">
-      <button>Ver más</button>
-    </div>
-    <div class="tarjeta">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932470/PARAMOUNT_TARJETA_2_b88v1i.jpg" alt="Producto 4">
-      <button>Ver más</button>
-    </div>
-    <div class="tarjeta">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932986/DIRECTVGO_TARJETA_dmmw0q.jpg" alt="Producto 5">
-      <button>Ver más</button>
-    </div>
-    <div class="tarjeta">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756934681/YOUTUBE_TARJETA_cfrtyf.png" alt="Producto 6">
-      <button>Ver más</button>
-    </div>
-    <div class="tarjeta">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932986/SPOTIFY_TARJETA_bdlkys.jpg" alt="Producto 7">
-      <button>Ver más</button>
-    </div>
-    <div class="tarjeta">
-      <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932986/PLEX_TARJETA_asoj4z.jpg" alt="Producto 8">
-      <button>Ver más</button>
+    <div class="catalogo">
+      <div class="tarjeta">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756868806/Imagen_de_WhatsApp_2025-09-02_a_las_22.06.32_1431de16_fz9ip7.jpg" alt="Producto 1">
+        <button>Ver más</button>
+      </div>
+      <div class="tarjeta">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932167/PRIMEVIDEO_TARJETA_oisibm.jpg" alt="Producto 2">
+        <button>Ver más</button>
+      </div>
+      <div class="tarjeta">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932625/HBOMAX_TARJETA_kklpcs.jpg" alt="Producto 3">
+        <button>Ver más</button>
+      </div>
+      <div class="tarjeta">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932470/PARAMOUNT_TARJETA_2_b88v1i.jpg" alt="Producto 4">
+        <button>Ver más</button>
+      </div>
+      <div class="tarjeta">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932986/DIRECTVGO_TARJETA_dmmw0q.jpg" alt="Producto 5">
+        <button>Ver más</button>
+      </div>
+      <div class="tarjeta">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756934681/YOUTUBE_TARJETA_cfrtyf.png" alt="Producto 6">
+        <button>Ver más</button>
+      </div>
+      <div class="tarjeta">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932986/SPOTIFY_TARJETA_bdlkys.jpg" alt="Producto 7">
+        <button>Ver más</button>
+      </div>
+      <div class="tarjeta">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756932986/PLEX_TARJETA_asoj4z.jpg" alt="Producto 8">
+        <button>Ver más</button>
+      </div>
     </div>
   </section>
+
+  <!-- Librería Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": ["#6c63ff", "#000000"] },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.6, "random": true },
+        "size": { "value": 4, "random": true },
+        "line_linked": { "enable": false },
+        "move": { "enable": true, "speed": 2, "direction": "none", "random": true }
+      }
+    });
+  </script>
+
 </body>
 </html>
