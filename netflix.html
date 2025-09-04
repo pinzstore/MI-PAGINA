@@ -1,235 +1,181 @@
-<!-- Sección Netflix -->
-<section class="netflix-planes">
-  <!-- Fondo con partículas -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planes Netflix - Pinzstore</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .text {
+      flex: 1;
+      padding-right: 30px;
+    }
+
+    .text h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .text strong {
+      color: #e50914;
+    }
+
+    .plans {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .plan-card {
+      background: #111;
+      border: 2px solid red;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    }
+
+    .plan-card img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    .plan-card h3 {
+      margin: 10px 0;
+      font-size: 1.3rem;
+    }
+
+    .plan-card .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #e50914;
+      margin: 10px 0;
+    }
+
+    .plan-card button {
+      background: #e50914;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .plan-card button:hover {
+      background: #ff1e26;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 15px;
+      }
+
+      .text {
+        padding: 0;
+        margin-bottom: 30px;
+      }
+
+      .plans {
+        width: 100%;
+      }
+
+      .plan-card {
+        width: 90%;
+      }
+    }
+
+    /* Partículas de fondo */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
   <div id="particles-js"></div>
 
-  <div class="planes-container">
-    
-    <!-- Texto a la izquierda -->
-    <div class="planes-info animate-left">
+  <div class="section">
+    <div class="text">
+      <img src="e0451d5b-e283-4413-b739-46e8a6fa42b9.png" alt="Logo Pinzstore" width="150">
       <h2>Elige el plan que más se ajuste a ti</h2>
       <p>
-        Con nuestra cobertura, tendrás acceso a Netflix como si fuera tu cuenta personal, 
-        pero con precios mucho más bajos.
+        Con nuestra cobertura, tendrás acceso a Netflix como si fuera tu cuenta personal, pero con precios mucho más bajos.
       </p>
-      <p class="extra">
-        ¡Haz parte de los cientos de clientes que ya disfrutan de Netflix con Pinzstore!
-      </p>
+      <p><strong>¡Haz parte de los cientos de clientes que ya disfrutan de Netflix con Pinzstore!</strong></p>
     </div>
 
-    <!-- Planes a la derecha -->
-    <div class="planes-grid animate-right">
+    <div class="plans">
       <div class="plan-card">
-        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Pinzstore" class="plan-logo">
+        <img src="e0451d5b-e283-4413-b739-46e8a6fa42b9.png" alt="Logo Plan">
         <h3>Plan Pantalla</h3>
         <p>1 pantalla • Full HD</p>
-        <h4>$4.99 USD</h4>
+        <p class="price">$4.99 USD</p>
         <button>Comprar</button>
       </div>
 
       <div class="plan-card">
-        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Pinzstore" class="plan-logo">
+        <img src="e0451d5b-e283-4413-b739-46e8a6fa42b9.png" alt="Logo Plan">
         <h3>Plan Completo</h3>
         <p>4 pantallas • Ultra HD</p>
-        <h4>$8.99 USD</h4>
+        <p class="price">$8.99 USD</p>
         <button>Comprar</button>
       </div>
     </div>
   </div>
-</section>
 
-<!-- Librería Particles.js -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<!-- Configuración de partículas -->
-<script>
-particlesJS("particles-js", {
-  "particles": {
-    "number": { "value": 80 },
-    "color": { "value": "#ffffff" },
-    "shape": { "type": "circle" },
-    "opacity": { "value": 0.5, "random": true },
-    "size": { "value": 3, "random": true },
-    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.3, "width": 1 },
-    "move": { "enable": true, "speed": 2, "direction": "none", "out_mode": "out" }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": { "enable": true, "mode": "grab" },
-      "onclick": { "enable": true, "mode": "push" }
-    },
-    "modes": {
-      "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
-      "push": { "particles_nb": 4 }
-    }
-  },
-  "retina_detect": true
-});
-</script>
-
-<style>
-/* --- General --- */
-.netflix-planes {
-  position: relative;
-  background: linear-gradient(to bottom, #000000, #141414);
-  color: white;
-  padding: 80px 20px;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  top: 0;
-  left: 0;
-}
-
-.planes-container {
-  position: relative;
-  z-index: 1; /* Para que esté encima de las partículas */
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 40px;
-}
-
-/* --- Info izquierda --- */
-.planes-info {
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px;
-}
-
-.planes-info h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #fff;
-}
-
-.planes-info p {
-  font-size: 18px;
-  color: #ccc;
-  margin-bottom: 10px;
-}
-
-.planes-info .extra {
-  font-weight: bold;
-  color: #e50914;
-  font-size: 20px;
-}
-
-/* --- Planes derecha --- */
-.planes-grid {
-  display: flex;
-  gap: 30px;
-  flex: 1;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.plan-card {
-  background: #1c1c1c;
-  border: 2px solid #e50914;
-  padding: 40px 30px;
-  border-radius: 16px;
-  width: 260px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.08); /* sombra blanca leve */
-}
-
-.plan-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 8px 25px rgba(229, 9, 20, 0.5);
-}
-
-.plan-logo {
-  width: 60px;
-  margin-bottom: 10px;
-}
-
-.plan-card h3 {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.plan-card p {
-  font-size: 15px;
-  color: #aaa;
-  margin-bottom: 20px;
-}
-
-.plan-card h4 {
-  font-size: 26px;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #e50914;
-}
-
-.plan-card button {
-  background: #e50914;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.plan-card button:hover {
-  background: #b00610;
-}
-
-/* --- Animaciones --- */
-.animate-left {
-  animation: slideInLeft 1s ease forwards;
-}
-
-.animate-right {
-  animation: slideInRight 1s ease forwards;
-}
-
-@keyframes slideInLeft {
-  from { transform: translateX(-100px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInRight {
-  from { transform: translateX(100px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  .planes-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .planes-grid {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .plan-card {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .planes-info h2 {
-    font-size: 26px;
-  }
-
-  .planes-info p {
-    font-size: 16px;
-  }
-}
-</style>
+  <!-- Librería Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {"value": 80},
+        "color": {"value": "#ffffff"},
+        "shape": {"type": "circle"},
+        "opacity": {"value": 0.5},
+        "size": {"value": 3},
+        "line_linked": {"enable": true,"color":"#ffffff"},
+        "move": {"enable": true,"speed": 1}
+      }
+    });
+  </script>
+</body>
+</html>
