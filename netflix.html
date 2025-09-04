@@ -59,9 +59,9 @@
     .plans {
       flex: 1;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;   /* 🔹 En PC los planes quedan en fila */
       gap: 20px;
-      align-items: center;
+      justify-content: center;
       animation: popIn 1s ease-out;
     }
 
@@ -148,16 +148,17 @@
         text-align: center;
         padding: 30px 15px;
       }
-
+    
       .text {
         padding: 0;
         margin-bottom: 30px;
       }
-
+    
       .plans {
+        flex-direction: column;   /* 🔹 En celular se apilan */
         width: 100%;
       }
-
+    
       .plan-card {
         width: 90%;
       }
