@@ -3,15 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activaciones y Catálogo</title>
-  <style>
-    /* ===== ESTILOS GENERALES ===== */
-    body {
-      margin: 0;<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo</title>
   <style>
     /* ===== ESTILOS GENERALES ===== */
@@ -20,7 +11,7 @@
       font-family: "Arial", sans-serif;
       color: #fff;
       overflow-x: hidden;
-      background: linear-gradient(180deg, #1b0d3f, #2c0a4d);
+      background: linear-gradient(180deg, #000000, #1b0d3f, #2c0a4d); /* Negro → Morado */
     }
 
     /* Canvas de partículas */
@@ -57,16 +48,17 @@
     }
 
     .tarjeta {
-      background: #ffffff;
+      background: #1b0d3f; /* Fondo morado oscuro */
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
       padding: 20px;
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .tarjeta:hover {
       transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(107, 34, 176, 0.8);
     }
 
     .tarjeta img {
@@ -83,18 +75,20 @@
     }
 
     .tarjeta button {
-      background: #ffffff;
-      border: 1px solid #000000;
+      background: #6b22b0;
+      border: none;
       padding: 10px 20px;
       cursor: pointer;
       font-size: 1rem;
       border-radius: 6px;
+      color: #fff;
+      font-weight: bold;
       transition: all 0.3s ease;
     }
 
     .tarjeta button:hover {
-      background: #000000;
-      color: #ffffff;
+      background: #a64aff;
+      color: #000;
     }
 
     @media (max-width: 1024px) {
@@ -161,8 +155,8 @@
   <script>
     particlesJS("particles-js", {
       "particles": {
-        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": ["#6b22b0", "#000000"] },
+        "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": ["#6b22b0", "#a64aff", "#000000"] },
         "shape": { "type": "circle" },
         "opacity": { "value": 0.5 },
         "size": { "value": 3 },
