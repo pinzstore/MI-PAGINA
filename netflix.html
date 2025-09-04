@@ -13,40 +13,56 @@
       overflow-x: hidden;
     }
 
+    /* Partículas */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    /* Sección principal */
     .section {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       padding: 50px;
       position: relative;
       z-index: 2;
     }
 
+    /* Texto */
     .text {
       flex: 1;
       padding-right: 30px;
+      animation: slideInLeft 1s ease-out;
     }
 
     .text h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
     }
 
     .text p {
       font-size: 1.1rem;
       line-height: 1.6;
+      margin-bottom: 15px;
     }
 
     .text strong {
       color: #e50914;
     }
 
+    /* Planes */
     .plans {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 20px;
       align-items: center;
+      animation: popIn 1s ease-out;
     }
 
     .plan-card {
@@ -57,7 +73,7 @@
       text-align: center;
       width: 300px;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .plan-card:hover {
@@ -66,7 +82,7 @@
     }
 
     .plan-card img {
-      width: 100px;
+      width: 80px;
       margin-bottom: 10px;
     }
 
@@ -75,8 +91,13 @@
       font-size: 1.3rem;
     }
 
+    .plan-card p {
+      font-size: 1rem;
+      color: #bbb;
+    }
+
     .plan-card .price {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: bold;
       color: #e50914;
       margin: 10px 0;
@@ -97,7 +118,30 @@
       background: #ff1e26;
     }
 
-    /* RESPONSIVE */
+    /* Animaciones */
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Responsivo */
     @media (max-width: 900px) {
       .section {
         flex-direction: column;
@@ -118,62 +162,67 @@
         width: 90%;
       }
     }
-
-    /* Partículas de fondo */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
   </style>
 </head>
 <body>
+  <!-- Partículas -->
   <div id="particles-js"></div>
 
-  <div class="section">
+  <!-- Contenido -->
+  <section class="section">
     <div class="text">
-      <img src="e0451d5b-e283-4413-b739-46e8a6fa42b9.png" alt="Logo Pinzstore" width="150">
       <h2>Elige el plan que más se ajuste a ti</h2>
       <p>
-        Con nuestra cobertura, tendrás acceso a Netflix como si fuera tu cuenta personal, pero con precios mucho más bajos.
+        Con nuestra cobertura, tendrás acceso a Netflix como si fuera tu cuenta personal, 
+        pero con precios mucho más bajos.
       </p>
-      <p><strong>¡Haz parte de los cientos de clientes que ya disfrutan de Netflix con Pinzstore!</strong></p>
+      <p>
+        <strong>¡Haz parte de los cientos de clientes que ya disfrutan de Netflix con Pinzstore!</strong>
+      </p>
     </div>
 
     <div class="plans">
       <div class="plan-card">
-        <img src="e0451d5b-e283-4413-b739-46e8a6fa42b9.png" alt="Logo Plan">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Pinzstore">
         <h3>Plan Pantalla</h3>
         <p>1 pantalla • Full HD</p>
-        <p class="price">$4.99 USD</p>
+        <div class="price">$4.99 USD</div>
         <button>Comprar</button>
       </div>
 
       <div class="plan-card">
-        <img src="e0451d5b-e283-4413-b739-46e8a6fa42b9.png" alt="Logo Plan">
+        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Pinzstore">
         <h3>Plan Completo</h3>
         <p>4 pantallas • Ultra HD</p>
-        <p class="price">$8.99 USD</p>
+        <div class="price">$8.99 USD</div>
         <button>Comprar</button>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Librería Particles.js -->
+  <!-- Script partículas -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
       "particles": {
-        "number": {"value": 80},
-        "color": {"value": "#ffffff"},
-        "shape": {"type": "circle"},
-        "opacity": {"value": 0.5},
-        "size": {"value": 3},
-        "line_linked": {"enable": true,"color":"#ffffff"},
-        "move": {"enable": true,"speed": 1}
+        "number": { "value": 80 },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.3,
+          "width": 1
+        },
+        "move": { "enable": true, "speed": 2 }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" }
+        }
       }
     });
   </script>
