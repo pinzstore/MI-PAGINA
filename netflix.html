@@ -23,8 +23,19 @@
     <div class="benefit-card">✔ Sin cortes ni publicidad</div>
   </div>
 
-  <!-- Planes con logo -->
+  <!-- Sección planes con logo a la izquierda -->
   <div class="plans-section">
+    <!-- Logo + texto -->
+    <div class="plans-logo">
+      <img src="logo.png" alt="Logo Pinzstore" />
+      <p>
+        Elige el plan que más se ajuste a ti. Con nuestra cobertura, tendrás acceso a Netflix como si fuera tu cuenta personal, pero con precios mucho más bajos.  
+        <br><br>
+        ¡Haz parte de los cientos de clientes que ya disfrutan de Netflix con Pinzstore!
+      </p>
+    </div>
+
+    <!-- Planes -->
     <div class="plans">
       <div class="plan-card">
         <h3>Plan Pantalla</h3>
@@ -39,15 +50,6 @@
         <h4>$8.99 USD</h4>
         <button>Comprar</button>
       </div>
-    </div>
-
-    <div class="plans-logo">
-      <img src="logo.png" alt="Logo Pinzstore" />
-      <p>
-        Elige el plan que más se ajuste a ti. Con nuestra cobertura, tendrás acceso a Netflix como si fuera tu cuenta personal, pero con precios mucho más bajos.  
-        <br><br>
-        ¡Haz parte de los cientos de clientes que ya disfrutan de Netflix con Pinzstore!
-      </p>
     </div>
   </div>
 </section>
@@ -149,20 +151,40 @@
   background: rgba(229, 9, 20, 0.8);
 }
 
-/* --- Planes con logo --- */
+/* --- Planes con logo a la izquierda --- */
 .plans-section {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  text-align: left;
   position: relative;
   z-index: 1;
+  margin-top: 40px;
+}
+
+.plans-logo {
+  max-width: 320px;
+  flex: 1;
+}
+
+.plans-logo img {
+  width: 140px;
+  margin-bottom: 20px;
+}
+
+.plans-logo p {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.6;
 }
 
 .plans {
   display: flex;
   gap: 30px;
+  flex: 2;
+  justify-content: center;
 }
 
 .plan-card {
@@ -211,23 +233,6 @@
 
 .plan-card button:hover {
   background: #b00610;
-}
-
-/* Logo y texto al lado */
-.plans-logo {
-  max-width: 300px;
-  text-align: left;
-}
-
-.plans-logo img {
-  width: 120px;
-  margin-bottom: 20px;
-}
-
-.plans-logo p {
-  font-size: 15px;
-  color: #ccc;
-  line-height: 1.6;
 }
 
 /* --- Animaciones --- */
