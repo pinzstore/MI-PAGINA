@@ -7,6 +7,15 @@
   <style>
     /* ===== ESTILOS GENERALES ===== */
     body {
+      margin: 0;<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo</title>
+  <style>
+    /* ===== ESTILOS GENERALES ===== */
+    body {
       margin: 0;
       font-family: "Arial", sans-serif;
       color: #fff;
@@ -26,129 +35,15 @@
 
     h2 {
       text-align: center;
-      margin-bottom: 40px;
-    }
-
-    /* ===== ACTIVACIONES ===== */
-    .pinz-section {
-      padding: 60px 20px;
-    }
-
-    .pinz-pricing {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 1 columna para features + 4 para cards */
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      align-items: start;
-    }
-
-    .pinz-features {
-      text-align: left;
-    }
-
-    .pinz-features h3 {
       margin-bottom: 15px;
+      font-size: 2rem;
     }
 
-    .pinz-features ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .pinz-features li {
-      padding: 12px 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.3);
-      font-size: 0.95rem;
-    }
-
-    .pinz-card {
-      background: linear-gradient(180deg, #7a3ac7, #3d1a74);
-      border-radius: 12px;
-      padding: 20px;
-      color: #fff;
+    p.subtitulo {
       text-align: center;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    .pinz-card img.logo {
-      width: 40px;
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .pinz-card h3 {
-      margin-top: 40px;
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-    }
-
-    .pinz-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .pinz-card li {
-      padding: 12px 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.3);
-      font-size: 0.9rem;
-    }
-
-    .pinz-card .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
-      background: #6c63ff;
-      color: #fff;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .pinz-card .btn:hover {
-      background: #5145d9;
-    }
-
-    .notes {
-      margin-top: 30px;
-      font-size: 0.8rem;
-      text-align: left;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #ddd;
-    }
-
-    .notes span {
-      color: #fbc531;
-    }
-
-    /* ===== RESPONSIVO ACTIVACIONES ===== */
-    @media (max-width: 1024px) {
-      .pinz-pricing {
-        grid-template-columns: 1fr 1fr; /* 2 columnas en tablet */
-      }
-      .pinz-features {
-        grid-column: span 2;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .pinz-pricing {
-        grid-template-columns: 1fr; /* 1 por fila en móvil */
-      }
-      .pinz-features {
-        grid-column: span 1;
-      }
+      font-size: 1.2rem;
+      color: #c5a6f8;
+      margin-bottom: 40px;
     }
 
     /* ===== CATALOGO ===== */
@@ -219,60 +114,10 @@
   <!-- Partículas -->
   <div id="particles-js"></div>
 
-  <!-- ===== ACTIVACIONES ===== -->
-  <section class="pinz-section">
-    <h2>¿Qué tipo de activación te puede convenir más?</h2>
-    <div class="pinz-pricing">
-      <!-- Columna de características -->
-      <div class="pinz-features">
-        <h3>Activaciones</h3>
-        <ul>
-          <li>Dispositivos de uso simultáneo por servicio</li>
-          <li>Eres dueño de la cuenta</li>
-          <li>Renovable en SOYPREMIUM</li>
-          <li>Calidad Video/Sonido (2)</li>
-          <li>Multiplataforma (TV, PC, Móvil, Tablet.)</li>
-          <li>5 servicios incluidos en 1 (3)</li>
-        </ul>
-      </div>
-
-      <!-- Card Perfil -->
-      <div class="pinz-card">
-        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Logo" class="logo">
-        <h3>Perfil</h3>
-        <ul>
-          <li>1</li>
-          <li>NO</li>
-          <li>NO</li>
-          <li>4K / El Mejor</li>
-          <li>SI</li>
-          <li>NO</li>
-        </ul>
-        <a href="#" class="btn">Ver servicios disponibles</a>
-      </div>
-
-      <!-- Card Cuenta Nueva -->
-      <div class="pinz-card">
-        <img src="https://res.cloudinary.com/dfkola0ej/image/upload/v1756173913/ChatGPT_Image_23_ago_2025_07_58_03_p.m._msstex.png" alt="Logo" class="logo">
-        <h3>Cuenta Nueva</h3>
-        <ul>
-          <li>Hasta 4 (1)</li>
-          <li>SI</li>
-          <li>SI (Sólo Netflix)</li>
-          <li>4K / El Mejor</li>
-          <li>SI</li>
-          <li>NO</li>
-        </ul>
-        <a href="#" class="btn">Ver servicios disponibles</a>
-      </div>
-
-
-    <!-- Notas -->
-    <div class="notes">
-      <p><span>(1)</span> Excluye Planes Spotify, los cuales solo tienen activación individual.</p>
-      <p><span>(2)</span> La disponibilidad del servicio en calidad 4K depende del catálogo del servicio activado, tu internet y la capacidad tecnológica de tu dispositivo.</p>
-      <p><span>(3)</span> Pack Premium incluye 5 servicios: Netflix, Disney Premium (Incluye ESPN), MAX, Paramount y Anime.</p>
-    </div>
+  <!-- ===== NUEVA SECCION ===== -->
+  <section class="nueva-seccion" style="padding:60px 20px;">
+    <h2>¿Ya sabes qué servicio quieres contratar?</h2>
+    <p class="subtitulo">Selecciona el servicio que gustes y actívate ahora</p>
   </section>
 
   <!-- ===== CATALOGO ===== -->
